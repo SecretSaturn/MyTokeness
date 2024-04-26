@@ -44,24 +44,12 @@ const MAX_GAS = {
     CHANGE_ADMIN: '140000',
     SET_CONTRACT_STATUS: '130000',
   },
-  NFT: {
-    INIT_MSG: '180000',
-    MINT: '250000',
-    BATCH_MINT: calcBatchMint,
-    CREATE_VIEWING_KEY: '120000',
-    SET_GLOBAL_APPROVAL: '130000',
-    SET_WHITELIST_APPROVAL: '140000',
-    REVEAL: '130000',
-    SET_GLOBAL_APPROVAL_TOKEN: '140000',
-    TRANSFER_NFT: '190000',
-    BURN_NFT: '180000',
-  },
 }
 
 const CONTRACT_CODE_ID =
   process.env.NEXT_PUBLIC_IS_MAINNET === 'true'
-    ? { SNIP20: 77, NFT: 78 }
-    : { SNIP20: 30012, NFT: 30010 }
+    ? { SNIP20: 77 }
+    : { SNIP20: 30012 }
 
 const SIDEBAR_TABS: SidebarTabs = {
   HOME: {
@@ -106,25 +94,6 @@ const SIDEBAR_TABS: SidebarTabs = {
         },
       ],
     },
-    track: {
-      label: 'Track',
-      icon: 'analytics-duo',
-      route: '/track',
-      menu: [
-        {
-          label: 'Transfers',
-          icon: 'exchange-duo',
-          route: '/track/transfers',
-          as: undefined,
-        },
-        {
-          label: 'Transactions',
-          icon: 'list-ul-duo',
-          route: '/track/transactions',
-          as: undefined,
-        },
-      ],
-    },
   },
 }
 
@@ -140,14 +109,13 @@ const FILE_UPLOADER = {
   MAX_SIZE: 50000000, // 50mb
 }
 
-const CHAIN_EXPLORER = `https://secretnodes.com/secret/chains/${process.env.NEXT_PUBLIC_CHAIN_ID}`
+const CHAIN_EXPLORER = `https://www.mintscan.io/secret/`
 
 const DATE_FORMAT = 'yyyy MMMM d, h:mm aa'
 const DETAILED_DATE_FORMAT = 'yyyy MMMM d, iiii, h:mm aa'
 
 const HEAD_TITLE_TEXT =
   'Secret Garden | Create, manage and explore tokens on the Secret Network.'
-
 
 export {
   MAX_GAS,

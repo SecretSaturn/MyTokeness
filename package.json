@@ -27,7 +27,6 @@
     "mime-types": "^2.1.31",
     "next": "^14.2.3",
     "next-connect": "^0.10.1",
-    "nft.storage": "^3.0.1",
     "react": "^18.3.1",
     "react-datepicker": "^4.1.1",
     "react-dom": "^18.3.1",
