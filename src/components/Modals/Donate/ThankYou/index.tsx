@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import Lottie from 'react-lottie-player'
+//import Lottie from 'react-lottie-player'
 
 import lottieJson from '../../../../../public/lotties/heart.json'
 import { Text } from '../../../UI/Typography'
@@ -9,12 +9,12 @@ const ThankYou: FC = () => {
   return (
     <Container>
       <Title>Thank You...</Title>
-      <Lottie
+      {/* <Lottie
         loop={false}
         animationData={lottieJson}
         play
         style={{ width: '50%', height: '50%' }}
-      />
+      /> */}
       <Text>
         ...for sharing the love. I hope you have a great day or night wherever
         you&apos;re from.

@@ -1,4 +1,4 @@
-import Lottie from 'react-lottie-player'
+//import Lottie from 'react-lottie-player'
 import styled from 'styled-components'
 
 interface NumberProps {
@@ -34,9 +34,5 @@ const Number = styled.div<NumberProps>`
   width: 40px;
 `
 
-const StyledLottie = styled(Lottie)`
-  height: 5rem;
-  width: 5rem;
-`
 
-export { Container, NumberWrapper, Number, StyledLottie }
+export { Container, NumberWrapper, Number }

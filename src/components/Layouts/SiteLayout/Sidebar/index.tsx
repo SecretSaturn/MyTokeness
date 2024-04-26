@@ -19,10 +19,6 @@ const Sidebar: FC = () => {
         {Object.entries(SIDEBAR_TABS.TOKEN).map(([key, value]) => (
           <Tab key={key} item={value} section="token" id={key} />
         ))}
-        <SectionHeader>NFT</SectionHeader>
-        {Object.entries(SIDEBAR_TABS.NFT).map(([key, value]) => (
-          <Tab key={key} item={value} section="nft" id={key} />
-        ))}
         {/* <Donation onClick={toggleDonation}>
           <Icon name="hands-heart-duo" height={20} width={20} fill="#C490E4" />
           Give some love
