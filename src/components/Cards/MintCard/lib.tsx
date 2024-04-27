@@ -1,6 +1,6 @@
+import { validateAddress } from 'secretjs'
 import { HandleMsgMint } from '../../../../interface/snip20'
 import addPadding from '../../../../utils/addPadding'
-import isSecretAddress from '../../../../utils/isSecretAddress'
 import toSmallestDenomination from '../../../../utils/toSmallestDenomination'
 
 interface ValidateResult {
@@ -16,7 +16,7 @@ const validate = (recipient: string, amount: string): ValidateResult => {
     amount: '',
   }
 
-  if (!recipient || !isSecretAddress(recipient)) {
+  if (!recipient || !validateAddress(recipient)) {
     errors.hasErrors = true
     errors.recipient = 'Please enter a vaild address.'
   }

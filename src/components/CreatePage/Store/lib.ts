@@ -1,7 +1,7 @@
 import Big from 'big.js'
 
-import isSecretAddress from '../../../../utils/isSecretAddress'
 import { Balance } from './model'
+import { validateAddress } from 'secretjs'
 
 const totalBalanceAmount = (balances: Balance[]) => {
   const sum = balances.reduce((acc: string, balance): string => {
@@ -61,7 +61,7 @@ const validation = (
     }
   }
 
-  if (adminAddress && !isSecretAddress(adminAddress)) {
+  if (adminAddress && !validateAddress(adminAddress)) {
     errors.hasErrors = true
     if (hasTriedSubmitting) {
       errors.adminAddress = 'Please enter a valid address.'
@@ -83,7 +83,7 @@ const validation = (
       return balanceError
     }
 
-    if (!isSecretAddress(address)) {
+    if (!validateAddress(address)) {
       errors.hasErrors = true
       if (hasTriedSubmitting) {
         balanceError.address = 'Please enter a valid address.'

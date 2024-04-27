@@ -3,7 +3,6 @@ import { toast } from 'react-toastify'
 
 import { HandleMsgChangeAdmin } from '../../../../interface/snip20'
 import { MAX_GAS } from '../../../../utils/constants'
-import isSecretAddress from '../../../../utils/isSecretAddress'
 import parseErrorMsg from '../../../../utils/parseErrorMsg'
 import { useStoreState } from '../../../hooks/storeHooks'
 import useMutationConnectWallet from '../../../hooks/useMutationConnectWallet'
@@ -13,6 +12,7 @@ import ButtonWithLoading from '../../Common/ButtonWithLoading'
 import MessageWithIcon from '../../Common/MessageWithIcon'
 import { Card, Header, Wrapper } from '../../UI/Card'
 import { Field, Input, Label } from '../../UI/Forms'
+import { validateAddress } from 'secretjs'
 
 type Props = {
   contractAddress: string
@@ -41,7 +41,7 @@ const ChangeAdminCard: FC<Props> = ({ contractAddress, enableButton }) => {
   }, [address])
 
   const onUpdate = async () => {
-    if (!address || !isSecretAddress(address)) {
+    if (!address || !validateAddress(address)) {
       setError('Please enter a valid address.')
       return
     }

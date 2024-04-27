@@ -9,7 +9,12 @@ const useQuerySnip20Config = (
 ) =>
   useQuery(
     ['tokenConfig', contractAddress],
-    () => queryChain.queryContractSmart(contractAddress, { token_config: {} }),
+    () => queryChain.query.compute.queryContract({
+      contract_address: contractAddress,
+      query: {
+        token_config: {}
+      }
+    }) as Promise<ResultTokenConfig>,
     {
       enabled: !!contractAddress,
       refetchOnWindowFocus: false,

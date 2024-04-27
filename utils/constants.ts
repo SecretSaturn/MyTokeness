@@ -97,17 +97,6 @@ const SIDEBAR_TABS: SidebarTabs = {
   },
 }
 
-const FILE_UPLOADER = {
-  ACCEPTS: [
-    'image/jpeg',
-    'image/png',
-    'image/gif',
-    'audio/mp3',
-    'audio/mpeg',
-    'video/mp4',
-  ],
-  MAX_SIZE: 50000000, // 50mb
-}
 
 const CHAIN_EXPLORER = `https://www.mintscan.io/secret/`
 
@@ -121,7 +110,6 @@ export {
   MAX_GAS,
   CONTRACT_CODE_ID,
   SIDEBAR_TABS,
-  FILE_UPLOADER,
   CHAIN_EXPLORER,
   DATE_FORMAT,
   HEAD_TITLE_TEXT,

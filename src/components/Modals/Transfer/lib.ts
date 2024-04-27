@@ -1,7 +1,6 @@
 import { InfiniteData } from 'react-query'
 
 import { ResultTokens } from '../../../../interface/nft'
-import isSecretAddress from '../../../../utils/isSecretAddress'
 
 const validate = (address: string, walletAddress: string) => {
   const validation = {
@@ -11,7 +10,7 @@ const validate = (address: string, walletAddress: string) => {
     },
   }
 
-  if (!address || !isSecretAddress(address)) {
+  if (!address || !validateAddress(address)) {
     validation.hasError = true
     validation.errors.address = 'Please enter a valid address.'
   } else if (address === walletAddress) {

@@ -1,11 +1,9 @@
 import { SecretNetworkClient } from 'secretjs'
-
-export const SECRET_CHAIN_ID = "https://lcd.mainnet.secretsaturn.net"
-export const SECRET_LCD = "secret-4"
+import { SECRET_CHAIN_ID, SECRET_LCD } from './config'
 
 const queryChain = new SecretNetworkClient({
-    url: SECRET_CHAIN_ID,
-    chainId: SECRET_LCD,
+    url: SECRET_LCD,
+    chainId: SECRET_CHAIN_ID,
   })
 
 export { queryChain }
