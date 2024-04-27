@@ -1,5 +1,6 @@
 import { Keplr as IKeplr } from '@keplr-wallet/types'
-import { SigningCosmWasmClient } from 'secretjs'
+import { SECRET_CHAIN_ID, SECRET_LCD } from './config'
+import { SecretNetworkClient } from 'secretjs'
 
 declare global {
   interface Window {
@@ -22,8 +23,8 @@ const getKeplr = () => {
   return window.keplr
 }
 
-const getGetOfflineSigner = (id: string | undefined) => {
-  return window.getOfflineSigner(id)
+const getGetOfflineSigner = (id: string) => {
+  return window.keplr.getOfflineSignerOnlyAmino(id)
 }
 
 const getEnigmaUtils = (id: string | undefined) => {
@@ -94,7 +95,7 @@ const connect = async (): Promise<Response> => {
 const getAccounts = async () => {
   try {
     const keplrOfflineSigner = getGetOfflineSigner(
-      process.env.NEXT_PUBLIC_CHAIN_ID
+      SECRET_CHAIN_ID
     )
     const accounts = await keplrOfflineSigner.getAccounts()
 
@@ -106,29 +107,18 @@ const getAccounts = async () => {
 
 const createSigningClient = async ({
   maxGas = '300000',
-} = {}): Promise<SigningCosmWasmClient> => {
+} = {}): SecretNetworkClient => {
   const { accounts, signer } = await getAccounts()
 
   try {
-    const utils = getEnigmaUtils(process.env.NEXT_PUBLIC_CHAIN_ID)
-    return new SigningCosmWasmClient(
-      process.env.NEXT_PUBLIC_LCD_URL || '',
-      accounts[0].address,
-      signer,
-      utils,
-      {
-        // 300k - Max gas units we're willing to use for init
-        init: {
-          amount: [{ amount: maxGas, denom: 'uscrt' }],
-          gas: maxGas,
-        },
-        // 300k - Max gas units we're willing to use for exec
-        exec: {
-          amount: [{ amount: maxGas, denom: 'uscrt' }],
-          gas: maxGas,
-        },
-      }
-    )
+    const utils = getEnigmaUtils(SECRET_CHAIN_ID)
+    return new SecretNetworkClient({
+      url: SECRET_LCD,
+      chainId: SECRET_CHAIN_ID,
+      wallet: signer,
+      walletAddress: accounts[0].address,
+      encryptionUtils: utils
+    })
   } catch (error) {
     throw error
   }
@@ -138,8 +128,8 @@ const getSnip20ViewingKey = async (contractAddress: string) => {
   const keplr = getKeplr()
 
   try {
-    return await keplr.getSecret20ViewingKey(
-      process.env.NEXT_PUBLIC_CHAIN_ID as string,
+    return await window.keplr.getSecret20ViewingKey(
+      SECRET_CHAIN_ID,
       contractAddress
     )
   } catch (error) {
@@ -152,7 +142,7 @@ const suggestToken = async (contractAddress: string) => {
 
   try {
     await keplr.suggestToken(
-      process.env.NEXT_PUBLIC_CHAIN_ID as string,
+      SECRET_CHAIN_ID,
       contractAddress
     )
   } catch (error) {
