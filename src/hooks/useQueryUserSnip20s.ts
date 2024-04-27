@@ -28,24 +28,27 @@ const fetchSnip20s = async (walletAddress: string) => {
 
     const filteredContracts = snip20Contracts?.contract_infos?.filter(
       (contract) => {
-        console.log(contract?.contract_info?.creator?.toString())
         return contract?.contract_info?.creator?.toString() === walletAddress}
-    )
+    ) || []
 
     return Promise.all(
-      filteredContracts?.map(async (contract: { address: any }) => {
-        const snip20Info: ResultTokenInfo = await queryChain.queryContractSmart(
-          contract.address,
           { token_info: {} }
-        )
-
+      filteredContracts.map(async (contract) => {
+        console.log(contract)
+        const snip20Info: any = await queryChain.query.compute.queryContract({
+          contract_address: contract.contract_address || "",
+          query: {
+            token_info: {},
+          },
+        });
+    
         return {
-          address: contract.address,
-          name: snip20Info.token_info.name,
-          symbol: snip20Info.token_info.symbol,
-        }
+          address: contract.contract_address,
+          name: snip20Info?.token_info?.name,
+          symbol: snip20Info?.token_info?.symbol,
+        };
       })
-    )
+    );
   } catch (error) {
     throw error
   }
