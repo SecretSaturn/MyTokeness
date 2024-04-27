@@ -25,10 +25,15 @@ const Avatar = () => {
 
   const { data, isLoading } = useQuery(
     ['nativeBalance', walletAddress],
-    () => queryChain.getAccount(walletAddress),
+    async () => {
+      const result = await queryChain.query.bank.balance({
+        denom: "uscrt",
+        address: walletAddress,
+      });
+      return result; 
+    },
     { enabled: !!walletAddress }
-  )
-
+  );
   // custom hooks
   const [status, copy] = useCopyToClipboard(walletAddress)
 
@@ -59,7 +64,7 @@ const Avatar = () => {
           </>
         ) : (
           `${commaNumber(
-            toBiggestDenomination(data?.balance[0].amount, 6)
+            toBiggestDenomination(data?.balance?.amount, 6)
           )} SCRT`
         )}
       </InfoPill>

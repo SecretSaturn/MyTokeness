@@ -48,8 +48,8 @@ const MAX_GAS = {
 
 const CONTRACT_CODE_ID =
   process.env.NEXT_PUBLIC_IS_MAINNET === 'true'
-    ? { SNIP20: 77 }
-    : { SNIP20: 30012 }
+    ? { SNIP20: 877 }
+    : { SNIP20: 877 }
 
 const SIDEBAR_TABS: SidebarTabs = {
   HOME: {

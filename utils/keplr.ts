@@ -105,9 +105,7 @@ const getAccounts = async () => {
   }
 }
 
-const createSigningClient = async ({
-  maxGas = '300000',
-} = {}): SecretNetworkClient => {
+const createSigningClient = async (): Promise <SecretNetworkClient> => {
   const { accounts, signer } = await getAccounts()
 
   try {

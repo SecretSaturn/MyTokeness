@@ -16,8 +16,6 @@ type Props = {
 
 const SiteLayout: FC<Props> = ({ children, config = {} }) => {
   const { hideSidebar } = config
-  // const store = useStoreState((state) => state)
-  // useMemo(() => console.log(store), [store])
 
   const { mutate } = useMutationGetAccounts()
 

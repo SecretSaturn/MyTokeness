@@ -97,8 +97,9 @@ const CreatePage = () => {
         onError: (error) => {
           toast.error(parseErrorMsg(error))
         },
-        onSuccess: ({ contractAddress }) => {
-          setContractAddress(contractAddress)
+        onSuccess: ({ address }) => {
+          console.log(address)
+          setContractAddress(address)
           setShowModal(true)
           reset()
         },

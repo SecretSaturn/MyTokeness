@@ -11,6 +11,7 @@ interface UserSnip20 extends Partial<TokenInfo> {
 const useQueryUserSnip20s = (
   walletAddress: string
 ): UseQueryResult<UserSnip20[], Error> => {
+  console.log(walletAddress)
   return useQuery(
     ['snip20s', walletAddress],
     async () => fetchSnip20s(walletAddress),
@@ -20,16 +21,19 @@ const useQueryUserSnip20s = (
 
 const fetchSnip20s = async (walletAddress: string) => {
   try {
-    const snip20Contracts = await queryChain.getContracts(
-      CONTRACT_CODE_ID.SNIP20
-    )
+    const snip20Contracts = await queryChain.query.compute.contractsByCodeId({code_id:
+      CONTRACT_CODE_ID.SNIP20.toString()}
+    ) 
+    console.log(snip20Contracts)
 
-    const filteredContracts = snip20Contracts.filter(
-      (contract) => contract.creator === walletAddress
+    const filteredContracts = snip20Contracts?.contract_infos?.filter(
+      (contract) => {
+        console.log(contract?.contract_info?.creator?.toString())
+        return contract?.contract_info?.creator?.toString() === walletAddress}
     )
 
     return Promise.all(
-      filteredContracts.map(async (contract) => {
+      filteredContracts?.map(async (contract: { address: any }) => {
         const snip20Info: ResultTokenInfo = await queryChain.queryContractSmart(
           contract.address,
           { token_info: {} }
