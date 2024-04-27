@@ -32,21 +32,10 @@ const Header = (): JSX.Element => {
       <Link href="/" passHref>
         <Brand>
           <Icon name="flower" height={25} width={25} fill="#5eae91" />
-          <Name>{`Secret Garden${
-            process.env.NEXT_PUBLIC_IS_MAINNET === 'true' ? '' : ' (testnet)'
-          }`}</Name>
+          <Name>{`Secret Garden`}</Name>
         </Brand>
       </Link>
       <Wrapper>
-        {process.env.NEXT_PUBLIC_IS_MAINNET === 'true' ? (
-          <Tooltip content="Go to testnet" offset={[0, 15]}>
-            <StyledAchor href="https://testnet.scrtgarden.com">
-              Try before you buy
-            </StyledAchor>
-          </Tooltip>
-        ) : (
-          <StyledAchor href="https://scrtgarden.com">Go to mainnet</StyledAchor>
-        )}
         {isConnected ? (
           <Avatar />
         ) : (

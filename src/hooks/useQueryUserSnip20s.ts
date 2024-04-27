@@ -32,7 +32,6 @@ const fetchSnip20s = async (walletAddress: string) => {
     ) || []
 
     return Promise.all(
-          { token_info: {} }
       filteredContracts.map(async (contract) => {
         console.log(contract)
         const snip20Info: any = await queryChain.query.compute.queryContract({
