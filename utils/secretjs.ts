@@ -1,5 +1,11 @@
-import { CosmWasmClient } from 'secretjs'
+import { SecretNetworkClient } from 'secretjs'
 
-const queryChain = new CosmWasmClient(process.env.NEXT_PUBLIC_LCD_URL as string)
+export const SECRET_CHAIN_ID = "https://lcd.mainnet.secretsaturn.net"
+export const SECRET_LCD = "secret-4"
+
+const queryChain = new SecretNetworkClient({
+    url: SECRET_CHAIN_ID,
+    chainId: SECRET_LCD,
+  })
 
 export { queryChain }

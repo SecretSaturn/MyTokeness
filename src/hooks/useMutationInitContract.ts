@@ -1,11 +1,11 @@
 import { UseMutationResult, useMutation, useQueryClient } from 'react-query'
-import { InstantiateResult } from 'secretjs'
 
 import { Params, instantiateContract } from '../../utils/contractInteractions'
 import { useStoreState } from './storeHooks'
+import { MsgInstantiateContractResponse } from 'secretjs'
 
 const useMutationInitContract = <T extends object>(): UseMutationResult<
-  InstantiateResult,
+  MsgInstantiateContractResponse,
   Error,
   Params<T>
 > => {
