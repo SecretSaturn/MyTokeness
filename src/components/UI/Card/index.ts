@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface HeaderProps {
-  readonly margin?: boolean
+  readonly margin?: boolean;
 }
 
 const Card = styled.div`
@@ -12,7 +12,7 @@ const Card = styled.div`
   max-width: 475px;
   padding: ${(props) => props.theme.space.lg};
   width: 90%;
-`
+`;
 
 const Header = styled.div<HeaderProps>`
   border-bottom: 2px solid ${(props) => props.theme.border.color};
@@ -20,25 +20,25 @@ const Header = styled.div<HeaderProps>`
   font-size: ${(props) => props.theme.font.sizes.md};
   padding-bottom: ${(props) => props.theme.space.sm};
   ${(props) => props.margin && `margin-top: ${props.theme.space.lg}`};
-`
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: ${(props) => props.theme.space.md};
   row-gap: ${(props) => props.theme.space.md};
-`
+`;
 
 const SettingsCard = styled(Card)`
   max-width: none;
   width: 100%;
-`
+`;
 
 const Buttons = styled.div`
   align-items: center;
   column-gap: ${(props) => props.theme.space.md};
   display: flex;
   justify-content: flex-end;
-`
+`;
 
-export { Card, Header, Wrapper, SettingsCard, Buttons }
+export { Card, Header, Wrapper, SettingsCard, Buttons };

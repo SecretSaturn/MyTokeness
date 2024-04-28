@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import CreatePage from '../src/components/CreatePage'
-import { getLayout } from '../src/components/Layouts/SiteLayout'
+import CreatePage from "../src/components/CreatePage";
+import { getLayout } from "../src/components/Layouts/SiteLayout";
 
 const Page = (): JSX.Element => (
   <>
@@ -10,8 +10,8 @@ const Page = (): JSX.Element => (
     </Head>
     <CreatePage />
   </>
-)
+);
 
-Page.getLayout = getLayout
+Page.getLayout = getLayout;
 
-export default Page
+export default Page;

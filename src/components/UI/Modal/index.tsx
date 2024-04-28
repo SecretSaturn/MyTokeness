@@ -1,35 +1,35 @@
-import { FC } from 'react'
-import styled from 'styled-components'
-import ReactModal, { ModalProps } from 'styled-react-modal'
+import { FC } from "react";
+import styled from "styled-components";
+import ReactModal, { ModalProps } from "styled-react-modal";
 
-import Icon from '../../Icons'
-import { IconButton } from '../Buttons'
+import Icon from "../../Icons";
+import { IconButton } from "../Buttons";
 
 interface TitleProps {
-  readonly isDanger?: boolean
+  readonly isDanger?: boolean;
 }
 
 interface IconProps {
-  readonly danger?: string
+  readonly danger?: string;
 }
 
 interface ButtonsProps {
-  readonly single?: boolean
+  readonly single?: boolean;
 }
 
 interface ContentProps {
-  readonly spaced?: boolean
+  readonly spaced?: boolean;
 }
 
 type Props = {
-  className?: string
-} & ModalProps
+  className?: string;
+} & ModalProps;
 
 const Modal: FC<Props> = ({ children, className, ...rest }) => (
   <ReactModal {...rest}>
     <StyledModal className={className}>{children}</StyledModal>
   </ReactModal>
-)
+);
 
 const ModalBackground = styled.div`
   align-items: center;
@@ -42,7 +42,7 @@ const ModalBackground = styled.div`
   top: 0;
   width: 100vw;
   z-index: 30;
-`
+`;
 
 const StyledModal = styled.div`
   background: ${(props) => props.theme.modal.card.bg};
@@ -51,7 +51,7 @@ const StyledModal = styled.div`
   position: relative;
   max-width: 450px;
   width: 90%;
-`
+`;
 
 const Header = styled.div`
   align-items: center;
@@ -59,16 +59,16 @@ const Header = styled.div`
   column-gap: ${(props) => props.theme.space.sm};
   display: flex;
   padding: ${(props) => props.theme.space.lg};
-`
+`;
 
 const StyledIcon = styled(Icon)<IconProps>`
   fill: ${(props) =>
-    props.danger === 'true'
+    props.danger === "true"
       ? props.theme.icon.colors.warn
       : props.theme.icon.colors.primary};
   height: 1.8rem;
   width: 1.8rem;
-`
+`;
 
 const Title = styled.h1<TitleProps>`
   color: ${(props) =>
@@ -77,7 +77,7 @@ const Title = styled.h1<TitleProps>`
       : props.theme.font.colors.primary};
   font-size: ${(props) => props.theme.font.sizes.md};
   margin: 0;
-`
+`;
 
 const Content = styled.div<ContentProps>`
   max-height: 600px;
@@ -91,14 +91,14 @@ const Content = styled.div<ContentProps>`
     flex-direction: column;
     row-gap: ${props.theme.space.md};
   `}
-`
+`;
 
 const Text = styled.p`
   color: ${(props) => props.theme.font.colors.secondary};
   font-size: ${(props) => props.theme.font.sizes.md};
   line-height: ${(props) => props.theme.font.lineHeights.md};
   margin: 0;
-`
+`;
 
 const Buttons = styled.div<ButtonsProps>`
   column-gap: ${(props) => props.theme.space.md};
@@ -106,7 +106,7 @@ const Buttons = styled.div<ButtonsProps>`
   justify-content: flex-end;
   padding: ${(props) =>
     `0 ${props.theme.space.lg} ${props.theme.space.lg} ${props.theme.space.lg}`};
-`
+`;
 
 const CloseButton = styled(IconButton)`
   position: absolute;
@@ -117,7 +117,7 @@ const CloseButton = styled(IconButton)`
     height: 16px;
     width: 16px;
   }
-`
+`;
 
 export {
   ModalBackground,
@@ -129,4 +129,4 @@ export {
   StyledIcon,
   Buttons,
   CloseButton,
-}
+};

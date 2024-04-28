@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import Icon from '../Icons'
+import Icon from "../Icons";
 
 const Brand = styled.h1`
   color: ${(props) => props.theme.font.colors.brand};
@@ -11,7 +11,7 @@ const Brand = styled.h1`
   span {
     color: ${(props) => props.theme.font.colors.primary};
   }
-`
+`;
 
 const Title = styled.h2`
   color: ${(props) => props.theme.font.colors.primary};
@@ -19,7 +19,7 @@ const Title = styled.h2`
   font-weight: ${(props) => props.theme.font.weights.semibold};
   margin-bottom: ${(props) => props.theme.space.sm};
   margin-top: 0;
-`
+`;
 
 const Wrapper = styled.div`
   bottom: ${(props) => props.theme.space.lg};
@@ -28,10 +28,10 @@ const Wrapper = styled.div`
   position: absolute;
   right: ${(props) => props.theme.space.lg};
   row-gap: ${(props) => props.theme.space.xs};
-`
+`;
 
 const StyledIcon = styled(Icon)`
   margin-top: ${(props) => props.theme.space.lg};
-`
+`;
 
-export { Brand, Title, Wrapper, StyledIcon }
+export { Brand, Title, Wrapper, StyledIcon };

@@ -1,12 +1,12 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface ContentProps {
-  readonly single?: boolean
+  readonly single?: boolean;
 }
 
 const Container = styled.div`
   padding: ${(props) => props.theme.space.lg};
-`
+`;
 
 const InnerContainer = styled.div`
   align-items: center;
@@ -15,7 +15,7 @@ const InnerContainer = styled.div`
   justify-content: center;
   margin: 0 auto;
   max-width: 1000px;
-`
+`;
 
 const Content = styled.div<ContentProps>`
   column-gap: ${(props) => props.theme.space.lg};
@@ -31,6 +31,6 @@ const Content = styled.div<ContentProps>`
       flex-direction: column;
       row-gap: ${props.theme.space.lg};
   `}
-`
+`;
 
-export { Container, InnerContainer, Content }
+export { Container, InnerContainer, Content };

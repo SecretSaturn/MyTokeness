@@ -1,11 +1,11 @@
-import { ToastContainer } from 'react-toastify'
-import styled from 'styled-components'
+import { ToastContainer } from "react-toastify";
+import styled from "styled-components";
 
 const StyledToastContainer = styled(ToastContainer).attrs({
-  className: 'toast-container',
-  toastClassName: 'toast',
-  bodyClassName: 'body',
-  progressClassName: 'progress',
+  className: "toast-container",
+  toastClassName: "toast",
+  bodyClassName: "body",
+  progressClassName: "progress",
 })`
   .toast {
     border: ${(props) => props.theme.notification.toast.toast.border};
@@ -30,7 +30,7 @@ const StyledToastContainer = styled(ToastContainer).attrs({
     .body {
       color: ${(props) => props.theme.notification.toast.body.color.error};
       ::before {
-        content: 'Error: ';
+        content: "Error: ";
       }
     }
   }
@@ -43,10 +43,10 @@ const StyledToastContainer = styled(ToastContainer).attrs({
     .body {
       color: ${(props) => props.theme.notification.toast.body.color.success};
       ::before {
-        content: 'Success: ';
+        content: "Success: ";
       }
     }
   }
-`
+`;
 
-export { StyledToastContainer }
+export { StyledToastContainer };

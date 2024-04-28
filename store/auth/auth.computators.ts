@@ -1,18 +1,19 @@
-import { computed } from 'easy-peasy'
+import { computed } from "easy-peasy";
 
-import { AuthComputators } from './auth.model'
+import { AuthComputators } from "./auth.model";
 
 const computators: AuthComputators = {
   isWalletConnected: computed(
     [(state) => state.accounts],
-    (accounts) => accounts.length > 0
+    (accounts) => accounts.length > 0,
   ),
   connectedAddress: computed([(state) => state.accounts], (accounts) =>
-    accounts.length > 0 ? accounts[0].address : ''
+    accounts.length > 0 ? accounts[0].address : "",
   ),
-  keyByContractAddress: computed((state) => (contractAddress: string) =>
-    state.viewingKeys?.[state.connectedAddress]?.[contractAddress]
+  keyByContractAddress: computed(
+    (state) => (contractAddress: string) =>
+      state.viewingKeys?.[state.connectedAddress]?.[contractAddress],
   ),
-}
+};
 
-export default computators
+export default computators;

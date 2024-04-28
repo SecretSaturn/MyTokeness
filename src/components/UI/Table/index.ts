@@ -1,21 +1,21 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface CellProps {
-  readonly width?: string
+  readonly width?: string;
 }
 
 interface CustomCellProps {
-  readonly bold?: boolean
-  readonly center?: boolean
-  readonly left?: boolean
-  readonly right?: boolean
+  readonly bold?: boolean;
+  readonly center?: boolean;
+  readonly left?: boolean;
+  readonly right?: boolean;
 }
 
 const Container = styled.div`
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-`
+`;
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -23,15 +23,15 @@ const Table = styled.table`
   line-height: 20px;
   table-layout: fixed;
   width: 100%;
-`
+`;
 
-const Head = styled.thead``
+const Head = styled.thead``;
 
 const HeaderRow = styled.tr`
   border-bottom: 1px solid ${(props) => props.theme.border.color};
   display: table-row;
   width: 100%;
-`
+`;
 
 const HeaderCell = styled.th<CellProps>`
   box-sizing: border-box;
@@ -42,9 +42,9 @@ const HeaderCell = styled.th<CellProps>`
   padding: ${(props) => props.theme.space.sm};
   ${({ width }) => width && `width: ${width}`};
   ${({ align }) => align && `text-align: ${align}`};
-`
+`;
 
-const Body = styled.tbody``
+const Body = styled.tbody``;
 
 const Row = styled.tr`
   border-bottom: 1px solid ${(props) => props.theme.border.color}90;
@@ -54,7 +54,7 @@ const Row = styled.tr`
   :only-child {
     border-bottom: none;
   }
-`
+`;
 
 const Cell = styled.td<CellProps>`
   box-sizing: border-box;
@@ -64,17 +64,17 @@ const Cell = styled.td<CellProps>`
   padding: ${(props) => props.theme.space.sm};
   ${({ width }) => width && `width: ${width}`};
   ${({ align }) => align && `text-align: ${align}`};
-`
+`;
 
 const CustomCell = styled.div<CustomCellProps>`
   width: 100%;
 
   ${(props) =>
     props.bold && `font-weight: ${props.theme.font.weights.semibold}`};
-  ${(props) => props.center && 'text-align: center'};
-  ${(props) => props.left && 'text-align: left'};
-  ${(props) => props.right && 'text-align: right'};
-`
+  ${(props) => props.center && "text-align: center"};
+  ${(props) => props.left && "text-align: left"};
+  ${(props) => props.right && "text-align: right"};
+`;
 
 export {
   Table,
@@ -86,4 +86,4 @@ export {
   Cell,
   CustomCell,
   Container,
-}
+};

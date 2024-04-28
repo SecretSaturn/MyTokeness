@@ -1,36 +1,36 @@
-import { FC, memo, useEffect, useState } from 'react'
+import { FC, memo, useEffect, useState } from "react";
 
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import MessageWithIcon from '../../Common/MessageWithIcon'
-import Icon from '../../Icons'
-import { Button } from '../../UI/Buttons'
-import { Field, Input, Label } from '../../UI/Forms'
-import { Buttons, CloseButton, Content, Header, Title } from '../../UI/Modal'
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import MessageWithIcon from "../../Common/MessageWithIcon";
+import Icon from "../../Icons";
+import { Button } from "../../UI/Buttons";
+import { Field, Input, Label } from "../../UI/Forms";
+import { Buttons, CloseButton, Content, Header, Title } from "../../UI/Modal";
 
 type Props = {
-  toggle: () => void
-  onClickPrimary: (value: string) => void
-  loading?: boolean
-}
+  toggle: () => void;
+  onClickPrimary: (value: string) => void;
+  loading?: boolean;
+};
 
 const ImportViewingKeyModal: FC<Props> = (props) => {
-  const { toggle, onClickPrimary, loading } = props
+  const { toggle, onClickPrimary, loading } = props;
 
-  const [newKey, setNewKey] = useState('')
-  const [error, setError] = useState('')
+  const [newKey, setNewKey] = useState("");
+  const [error, setError] = useState("");
 
   const onClick = () => {
     if (!newKey) {
-      setError('Please enter a valid key.')
-      return
+      setError("Please enter a valid key.");
+      return;
     }
 
-    onClickPrimary(newKey)
-  }
+    onClickPrimary(newKey);
+  };
 
   useEffect(() => {
-    setError('')
-  }, [newKey])
+    setError("");
+  }, [newKey]);
 
   return (
     <>
@@ -47,7 +47,7 @@ const ImportViewingKeyModal: FC<Props> = (props) => {
             autoFocus
             value={newKey}
             onChange={(e) => setNewKey(e.currentTarget.value)}
-            validation={error ? 'error' : undefined}
+            validation={error ? "error" : undefined}
           />
           {error && <MessageWithIcon validation="error" message={error} />}
         </Field>
@@ -63,7 +63,7 @@ const ImportViewingKeyModal: FC<Props> = (props) => {
         />
       </Buttons>
     </>
-  )
-}
+  );
+};
 
-export default memo(ImportViewingKeyModal)
+export default memo(ImportViewingKeyModal);

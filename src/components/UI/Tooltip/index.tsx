@@ -1,10 +1,10 @@
-import Tippy, { TippyProps } from '@tippyjs/react/headless'
-import { FC, memo } from 'react'
+import Tippy, { TippyProps } from "@tippyjs/react/headless";
+import { FC, memo } from "react";
 
-import { Button, Content } from './styles'
+import { Button, Content } from "./styles";
 
 const Tooltip: FC<TippyProps> = (props) => {
-  const { children, content, ...rest } = props
+  const { children, content, ...rest } = props;
 
   return (
     <Tippy
@@ -17,7 +17,7 @@ const Tooltip: FC<TippyProps> = (props) => {
     >
       <Button>{children}</Button>
     </Tippy>
-  )
-}
+  );
+};
 
-export default memo(Tooltip)
+export default memo(Tooltip);

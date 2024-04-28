@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
@@ -13,7 +13,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
       height="1rem"
       {...props}
     >
-      <style>{'.prefix__st0{fill:#fff}'}</style>
+      <style>{".prefix__st0{fill:#fff}"}</style>
       <path
         className="prefix__st0"
         d="M852.8 146.5C758.4 52 633 0 499.6 0 224.1 0 0 224.3 0 500s224.1 500 499.6 500c133.4 0 258.9-52 353.2-146.5 94.4-94.5 146.3-220 146.3-353.5s-51.9-259.1-146.3-353.5zM499.6 965.4c-256.4 0-465-208.8-465-465.4 0-256.6 208.6-465.4 465-465.4s465 208.8 465 465.4c0 256.6-208.6 465.4-465 465.4z"
@@ -35,7 +35,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
         </g>
       </g>
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface ItemProps {
-  readonly isDanger?: boolean
+  readonly isDanger?: boolean;
 }
 
 const Container = styled.div`
@@ -9,7 +9,7 @@ const Container = styled.div`
   border: 2px solid ${(props) => props.theme.border.color};
   border-radius: ${(props) => props.theme.border.radii.sm};
   overflow: hidden;
-`
+`;
 
 const Item = styled.div<ItemProps>`
   color: ${(props) => props.theme.font.colors.primary};
@@ -27,6 +27,6 @@ const Item = styled.div<ItemProps>`
   :hover {
     background: ${(props) => props.theme.bg};
   }
-`
+`;
 
-export { Container, Item }
+export { Container, Item };

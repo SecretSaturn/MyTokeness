@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import Icon from '../../Icons'
-import { IconButton } from '../../UI/Buttons'
-import { Skeleton } from '../../UI/Loaders'
-import { Tag } from '../../UI/Tags'
+import Icon from "../../Icons";
+import { IconButton } from "../../UI/Buttons";
+import { Skeleton } from "../../UI/Loaders";
+import { Tag } from "../../UI/Tags";
 
 const Container = styled.div`
   align-items: center;
@@ -18,7 +18,7 @@ const Container = styled.div`
   padding: ${(props) => props.theme.space.lg};
   position: relative;
   width: 100%;
-`
+`;
 
 const Label = styled.div`
   color: ${(props) => props.theme.font.colors.primary};
@@ -32,37 +32,37 @@ const Label = styled.div`
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-`
+`;
 
 const StyledIcon = styled(Icon)`
   fill: ${(props) => props.theme.icon.colors.secondary};
   height: 6rem;
   margin-top: ${(props) => props.theme.space.md};
   width: 6rem;
-`
+`;
 
 const SkeletonLabel = styled(Skeleton)`
   flex: unset;
-`
+`;
 
 const SkeletonIcon = styled(Skeleton)`
   border-radius: 50%;
   flex: unset;
   margin-top: ${(props) => props.theme.space.md};
-`
+`;
 
 const StyledTag = styled(Tag)`
   bottom: 20px;
   position: absolute;
   right: 20px;
-`
+`;
 
 const StyledIconButton = styled(IconButton)`
   position: absolute;
   right: 20px;
   top: 20px;
   z-index: 1;
-`
+`;
 
 export {
   Container,
@@ -72,4 +72,4 @@ export {
   SkeletonIcon,
   StyledTag,
   StyledIconButton,
-}
+};

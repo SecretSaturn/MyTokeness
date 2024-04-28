@@ -1,34 +1,34 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect } from "react";
 
-import useMutationGetAccounts from '../../../hooks/useMutationGetAccounts'
-import Header from './Header'
-import Sidebar from './Sidebar'
-import { Container } from './styles'
+import useMutationGetAccounts from "../../../hooks/useMutationGetAccounts";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import { Container } from "./styles";
 
 interface Config {
-  hideSidebar?: boolean
+  hideSidebar?: boolean;
 }
 
 type Props = {
-  config?: Config
-  children?: React.ReactElement
-}
+  config?: Config;
+  children?: React.ReactElement;
+};
 
 const SiteLayout: FC<Props> = ({ children, config = {} }) => {
-  const { hideSidebar } = config
+  const { hideSidebar } = config;
 
-  const { mutate } = useMutationGetAccounts()
+  const { mutate } = useMutationGetAccounts();
 
   useEffect(() => {
-    window.addEventListener('keplr_keystorechange', () => mutate())
+    window.addEventListener("keplr_keystorechange", () => mutate());
 
     return () =>
-      window.removeEventListener('keplr_keystorechange', () => mutate())
-  }, [mutate])
+      window.removeEventListener("keplr_keystorechange", () => mutate());
+  }, [mutate]);
 
   useEffect(() => {
-    mutate()
-  }, [mutate])
+    mutate();
+  }, [mutate]);
 
   return (
     <>
@@ -38,11 +38,11 @@ const SiteLayout: FC<Props> = ({ children, config = {} }) => {
         {children}
       </Container>
     </>
-  )
-}
+  );
+};
 
 const getLayout = (page: JSX.Element, config?: Config): JSX.Element => (
   <SiteLayout config={config}>{page}</SiteLayout>
-)
+);
 
-export { SiteLayout as default, getLayout }
+export { SiteLayout as default, getLayout };

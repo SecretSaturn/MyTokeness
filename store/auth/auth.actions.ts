@@ -1,24 +1,24 @@
-import { action } from 'easy-peasy'
+import { action } from "easy-peasy";
 
-import { AuthActions } from './auth.model'
+import { AuthActions } from "./auth.model";
 
 const actions: AuthActions = {
   setAccounts: action((state, payload) => {
-    state.accounts = payload
+    state.accounts = payload;
   }),
   setViewingKey: action((state, payload) => {
-    const { connectedAddress, viewingKeys } = state
-    const { key, contractAddress } = payload
+    const { connectedAddress, viewingKeys } = state;
+    const { key, contractAddress } = payload;
 
     if (!viewingKeys[connectedAddress]) {
-      viewingKeys[connectedAddress] = { [contractAddress]: key }
+      viewingKeys[connectedAddress] = { [contractAddress]: key };
     } else {
-      viewingKeys[connectedAddress][contractAddress] = key
+      viewingKeys[connectedAddress][contractAddress] = key;
     }
   }),
   removeViewingKey: action((state, payload) => {
-    state.viewingKeys[state.connectedAddress][payload] = ''
+    state.viewingKeys[state.connectedAddress][payload] = "";
   }),
-}
+};
 
-export default actions
+export default actions;

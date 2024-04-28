@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface TextProps {
-  readonly bold?: boolean
-  readonly md?: boolean
+  readonly bold?: boolean;
+  readonly md?: boolean;
 }
 
 const Container = styled.div`
@@ -10,7 +10,7 @@ const Container = styled.div`
   column-gap: ${(props) => props.theme.space.sm};
   display: flex;
   flex-direction: row;
-`
+`;
 
 const Address = styled.p`
   color: ${(props) => props.theme.font.colors.primary};
@@ -18,13 +18,13 @@ const Address = styled.p`
   cursor: pointer;
   margin: 0;
   /* text-decoration: underline; */
-`
+`;
 
 const Text = styled.p<TextProps>`
   color: ${(props) => props.theme.font.colors.inversePrimary};
-  font-size: ${(props) => props.theme.font.sizes[props.md ? 'md' : 'sm']};
+  font-size: ${(props) => props.theme.font.sizes[props.md ? "md" : "sm"]};
   font-weight: ${(props) =>
-    props.theme.font.weights[props.bold ? 'semibold' : 'regular']};
+    props.theme.font.weights[props.bold ? "semibold" : "regular"]};
   margin: 0;
 
   :last-child {
@@ -34,6 +34,6 @@ const Text = styled.p<TextProps>`
   :only-child {
     margin-top: 0;
   }
-`
+`;
 
-export { Container, Address, Text }
+export { Container, Address, Text };

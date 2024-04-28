@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface ContainerProps {
-  readonly full?: boolean
+  readonly full?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -17,6 +17,6 @@ const Container = styled.div<ContainerProps>`
     display: flex;
     
   `}
-`
+`;
 
-export { Container }
+export { Container };

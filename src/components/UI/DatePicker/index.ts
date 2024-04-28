@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const DatePickerWrapper = styled.div`
   .react-datepicker-wrapper {
@@ -27,6 +27,6 @@ const DatePickerWrapper = styled.div`
   .react-datepicker__triangle {
     transform: translate(205px, 0px) !important;
   }
-`
+`;
 
-export { DatePickerWrapper }
+export { DatePickerWrapper };

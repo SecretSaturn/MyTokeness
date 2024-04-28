@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import Dots from '../../UI/Loaders/Dots'
+import Dots from "../../UI/Loaders/Dots";
 
 const StyledDots = styled(Dots)`
   bottom: 0;
@@ -11,6 +11,6 @@ const StyledDots = styled(Dots)`
   top: 0;
   width: 100%;
   height: 100%;
-`
+`;
 
-export { StyledDots }
+export { StyledDots };

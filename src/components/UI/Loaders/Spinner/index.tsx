@@ -1,17 +1,15 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import lottieJson from '../../../../../public/lotties/spinner-gradient.json'
+import lottieJson from "../../../../../public/lotties/spinner-gradient.json";
 
 type Props = {
-  size?: number
-}
+  size?: number;
+};
 
 const Spinner: FC<Props> = (props) => {
-  const { size = 50 } = props
+  const { size = 50 } = props;
 
-  return (
-   <></>
-  )
-}
+  return <></>;
+};
 
-export default memo(Spinner)
+export default memo(Spinner);

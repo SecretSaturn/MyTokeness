@@ -1,37 +1,40 @@
-import { MouseEvent, useCallback, useEffect, useState } from 'react'
+import { MouseEvent, useCallback, useEffect, useState } from "react";
 
-export type CopyStatus = 'inactive' | 'copied' | 'failed'
+export type CopyStatus = "inactive" | "copied" | "failed";
 
 const useCopyToClipboard = (
   text: string,
-  notifyTimeout = 2500
+  notifyTimeout = 2500,
 ): [CopyStatus, () => void] => {
-  const [copyStatus, setCopyStatus] = useState<CopyStatus>('inactive')
+  const [copyStatus, setCopyStatus] = useState<CopyStatus>("inactive");
   const copy = useCallback(
     async (newText?: MouseEvent<HTMLButtonElement> | string) => {
       try {
         await navigator.clipboard.writeText(
-          typeof newText === 'string' ? newText : text
-        )
-        setCopyStatus('copied')
+          typeof newText === "string" ? newText : text,
+        );
+        setCopyStatus("copied");
       } catch (e) {
-        setCopyStatus('failed')
+        setCopyStatus("failed");
       }
     },
-    [text]
-  )
+    [text],
+  );
 
   useEffect(() => {
-    if (copyStatus === 'inactive') {
-      return
+    if (copyStatus === "inactive") {
+      return;
     }
 
-    const timeoutId = setTimeout(() => setCopyStatus('inactive'), notifyTimeout)
+    const timeoutId = setTimeout(
+      () => setCopyStatus("inactive"),
+      notifyTimeout,
+    );
 
-    return () => clearTimeout(timeoutId)
-  }, [copyStatus, notifyTimeout])
+    return () => clearTimeout(timeoutId);
+  }, [copyStatus, notifyTimeout]);
 
-  return [copyStatus, copy]
-}
+  return [copyStatus, copy];
+};
 
-export default useCopyToClipboard
+export default useCopyToClipboard;

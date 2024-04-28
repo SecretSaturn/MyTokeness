@@ -1,15 +1,15 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import Icon from '../../Icons'
+import Icon from "../../Icons";
 
 export interface ButtonProps {
-  readonly size?: 'small' | 'medium' | 'large'
-  readonly isStretched?: boolean
-  readonly isPrimary?: boolean
-  readonly isSecondary?: boolean
-  readonly isDanger?: boolean
-  readonly width?: number
-  readonly disabled?: boolean
+  readonly size?: "small" | "medium" | "large";
+  readonly isStretched?: boolean;
+  readonly isPrimary?: boolean;
+  readonly isSecondary?: boolean;
+  readonly isDanger?: boolean;
+  readonly width?: number;
+  readonly disabled?: boolean;
 }
 
 const Button = styled.button<ButtonProps>`
@@ -24,9 +24,11 @@ const Button = styled.button<ButtonProps>`
   outline: none;
   padding: 0 ${(props) => props.theme.space.sm};
   position: relative;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   ${(props) => props.width && `width: ${props.width}px`};
-  ${(props) => props.isStretched && 'width: 100%'};
+  ${(props) => props.isStretched && "width: 100%"};
 
   ${(props) =>
     props.isPrimary &&
@@ -90,7 +92,7 @@ const Button = styled.button<ButtonProps>`
       background-color: ${props.theme.buttons.button.bg.disabled};
       color: ${props.theme.buttons.button.color.disabled};
   `}
-`
+`;
 
 const IconButton = styled.button<ButtonProps>`
   background-color: ${(props) => props.theme.buttons.button.bg.default.base};
@@ -107,7 +109,7 @@ const IconButton = styled.button<ButtonProps>`
   width: 40px;
 
   ${(props) =>
-    props.size === 'small' &&
+    props.size === "small" &&
     `
     height: 32px;
     width: 32px;
@@ -153,18 +155,18 @@ const IconButton = styled.button<ButtonProps>`
     `
     pointer-events: none;
   `}
-`
+`;
 
 const StyledIcon = styled(Icon)`
   fill: ${(props) => props.theme.icon.colors.secondary};
-`
+`;
 
 const IconButtonWrapper = styled.div`
   align-items: center;
   column-gap: ${(props) => props.theme.space.xxs};
   display: flex;
   flex-direction: row;
-`
+`;
 
 const Anchor = styled.a`
   color: ${(props) => props.theme.buttons.anchor.color.base};
@@ -181,6 +183,6 @@ const Anchor = styled.a`
     color: ${(props) => props.theme.buttons.anchor.color.active};
     text-decoration: underline;
   }
-`
+`;
 
-export { Button, IconButton, StyledIcon, IconButtonWrapper, Anchor }
+export { Button, IconButton, StyledIcon, IconButtonWrapper, Anchor };

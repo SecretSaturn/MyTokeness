@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import Icon from '../../../../../Icons'
+import Icon from "../../../../../Icons";
 
 interface ContainerProps {
-  readonly selected?: boolean
+  readonly selected?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -21,7 +21,7 @@ const Container = styled.div<ContainerProps>`
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
     background-color: ${(props) => props.theme.sidebar.tab.indicator};
-    content: '';
+    content: "";
     ${(props) => !props.selected && `display: none`};
     position: absolute;
     height: 90%;
@@ -32,18 +32,18 @@ const Container = styled.div<ContainerProps>`
   :hover {
     background: ${(props) => props.theme.sidebar.tab.bg.hover};
   }
-`
+`;
 
 const Label = styled.div`
   color: ${(props) => props.theme.sidebar.tab.color};
   font-size: ${(props) => props.theme.font.sizes.md};
   font-weight: ${(props) => props.theme.font.weights.semibold};
-`
+`;
 
 const StyledIcon = styled(Icon)`
   fill: ${(props) => props.theme.sidebar.tab.color};
   height: 1.8rem;
   width: 1.8rem;
-`
+`;
 
-export { Container, Label, StyledIcon }
+export { Container, Label, StyledIcon };

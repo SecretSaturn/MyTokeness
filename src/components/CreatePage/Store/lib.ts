@@ -1,17 +1,17 @@
-import Big from 'big.js'
+import Big from "big.js";
 
-import { Balance } from './model'
-import { validateAddress } from 'secretjs'
+import { Balance } from "./model";
+import { validateAddress } from "secretjs";
 
 const totalBalanceAmount = (balances: Balance[]) => {
   const sum = balances.reduce((acc: string, balance): string => {
-    const accBig = new Big(acc)
+    const accBig = new Big(acc);
 
-    return accBig.plus(balance.amount || '0').toString()
-  }, '0')
+    return accBig.plus(balance.amount || "0").toString();
+  }, "0");
 
-  return sum
-}
+  return sum;
+};
 
 const validation = (
   name: string,
@@ -19,60 +19,60 @@ const validation = (
   decimals: string,
   adminAddress: string,
   initialBalances: Balance[],
-  hasTriedSubmitting: boolean
+  hasTriedSubmitting: boolean,
 ) => {
   const errors = {
     hasErrors: false,
-    name: '',
-    symbol: '',
-    decimals: '',
-    adminAddress: '',
-    initialBalances: [{ address: '', amount: '' }],
-  }
+    name: "",
+    symbol: "",
+    decimals: "",
+    adminAddress: "",
+    initialBalances: [{ address: "", amount: "" }],
+  };
 
   if (!name) {
-    errors.hasErrors = true
+    errors.hasErrors = true;
     if (hasTriedSubmitting) {
-      errors.name = 'Please enter a valid name.'
+      errors.name = "Please enter a valid name.";
     }
   } else if (name.length < 3) {
-    errors.hasErrors = true
+    errors.hasErrors = true;
     if (hasTriedSubmitting) {
-      errors.name = 'Please enter a name at least 3 chars long.'
+      errors.name = "Please enter a name at least 3 chars long.";
     }
   }
 
   if (!symbol) {
-    errors.hasErrors = true
+    errors.hasErrors = true;
     if (hasTriedSubmitting) {
-      errors.symbol = 'Please enter a valid symbol.'
+      errors.symbol = "Please enter a valid symbol.";
     }
   } else if (symbol.length <= 2) {
-    errors.hasErrors = true
+    errors.hasErrors = true;
     if (hasTriedSubmitting) {
-      errors.symbol = 'Please enter a symbol at least 3 chars long.'
+      errors.symbol = "Please enter a symbol at least 3 chars long.";
     }
   }
 
   if (!decimals) {
-    errors.hasErrors = true
+    errors.hasErrors = true;
     if (hasTriedSubmitting) {
-      errors.decimals = 'Please enter a valid decimal.'
+      errors.decimals = "Please enter a valid decimal.";
     }
   }
 
   if (adminAddress && !validateAddress(adminAddress)) {
-    errors.hasErrors = true
+    errors.hasErrors = true;
     if (hasTriedSubmitting) {
-      errors.adminAddress = 'Please enter a valid address.'
+      errors.adminAddress = "Please enter a valid address.";
     }
   }
 
   errors.initialBalances = initialBalances.map(({ address, amount }, index) => {
     const balanceError = {
-      address: '',
-      amount: '',
-    }
+      address: "",
+      amount: "",
+    };
 
     if (
       initialBalances.length > 1 &&
@@ -80,27 +80,27 @@ const validation = (
       !address &&
       !amount
     ) {
-      return balanceError
+      return balanceError;
     }
 
     if (!validateAddress(address)) {
-      errors.hasErrors = true
+      errors.hasErrors = true;
       if (hasTriedSubmitting) {
-        balanceError.address = 'Please enter a valid address.'
+        balanceError.address = "Please enter a valid address.";
       }
     }
 
     if (!amount) {
-      errors.hasErrors = true
+      errors.hasErrors = true;
       if (hasTriedSubmitting) {
-        balanceError.amount = 'Please enter a valid amount.'
+        balanceError.amount = "Please enter a valid amount.";
       }
     }
 
-    return balanceError
-  })
+    return balanceError;
+  });
 
-  return errors
-}
+  return errors;
+};
 
-export { totalBalanceAmount, validation }
+export { totalBalanceAmount, validation };

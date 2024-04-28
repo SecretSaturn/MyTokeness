@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-import { Buttons, Header, SettingsCard, Wrapper } from '../../UI/Card'
-import { Skeleton } from '../../UI/Loaders'
+import { Buttons, Header, SettingsCard, Wrapper } from "../../UI/Card";
+import { Skeleton } from "../../UI/Loaders";
 
 type Props = {
-  hidebutton?: boolean
-}
+  hidebutton?: boolean;
+};
 
 const SkeletonCard: FC<Props> = ({ hidebutton }) => (
   <SettingsCard>
@@ -22,6 +22,6 @@ const SkeletonCard: FC<Props> = ({ hidebutton }) => (
       )}
     </Wrapper>
   </SettingsCard>
-)
+);
 
-export default SkeletonCard
+export default SkeletonCard;

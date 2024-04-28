@@ -1,25 +1,25 @@
-import Tippy from '@tippyjs/react/headless'
-import { FC, memo } from 'react'
-import { Placement } from 'tippy.js'
+import Tippy from "@tippyjs/react/headless";
+import { FC, memo } from "react";
+import { Placement } from "tippy.js";
 
 type Props = {
-  isOpen: boolean
-  toggle: () => void
-  children: JSX.Element
-  placement?: Placement
-  offset?: [number, number]
-  content?: JSX.Element | string
-}
+  isOpen: boolean;
+  toggle: () => void;
+  children: JSX.Element;
+  placement?: Placement;
+  offset?: [number, number];
+  content?: JSX.Element | string;
+};
 
 const Dropdown: FC<Props> = (props) => {
   const {
     children,
-    placement = 'auto',
+    placement = "auto",
     offset = [0, 10],
     content,
     isOpen,
     toggle,
-  } = props
+  } = props;
 
   return (
     <Tippy
@@ -36,7 +36,7 @@ const Dropdown: FC<Props> = (props) => {
     >
       {children}
     </Tippy>
-  )
-}
+  );
+};
 
-export default memo(Dropdown)
+export default memo(Dropdown);

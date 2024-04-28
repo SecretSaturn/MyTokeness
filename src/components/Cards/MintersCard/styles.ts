@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const AddBar = styled.div``
+const AddBar = styled.div``;
 
 const Field = styled.div`
   align-items: center;
@@ -8,6 +8,6 @@ const Field = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`
+`;
 
-export { AddBar, Field }
+export { AddBar, Field };

@@ -1,10 +1,10 @@
-import cryptoRandomString from 'crypto-random-string'
+import cryptoRandomString from "crypto-random-string";
 
-import { InitMsg } from '../../../interface/snip20'
-import toSmallestDenomination from '../../../utils/toSmallestDenomination'
-import { Balance, State } from './Store/model'
+import { InitMsg } from "../../../interface/snip20";
+import toSmallestDenomination from "../../../utils/toSmallestDenomination";
+import { Balance, State } from "./Store/model";
 
-const formatter = (data: Omit<State, 'hasTriedSubmitting'>): InitMsg => {
+const formatter = (data: Omit<State, "hasTriedSubmitting">): InitMsg => {
   const {
     name,
     symbol,
@@ -16,17 +16,17 @@ const formatter = (data: Omit<State, 'hasTriedSubmitting'>): InitMsg => {
     enableMint,
     enableBurn,
     initialBalances,
-  } = data
+  } = data;
 
-  const intDecimals = parseInt(decimals, 10)
-  const formattedBalances = formatBalances(initialBalances, intDecimals)
+  const intDecimals = parseInt(decimals, 10);
+  const formattedBalances = formatBalances(initialBalances, intDecimals);
 
   return {
     name: name.trim(),
     symbol: symbol.toUpperCase(),
     decimals: intDecimals,
     ...(adminAddress ? { admin: adminAddress } : {}),
-    prng_seed: cryptoRandomString({ length: 40, type: 'base64' }),
+    prng_seed: cryptoRandomString({ length: 40, type: "base64" }),
     initial_balances: formattedBalances,
     config: {
       public_total_supply: enablePublicTokenSupply,
@@ -35,8 +35,8 @@ const formatter = (data: Omit<State, 'hasTriedSubmitting'>): InitMsg => {
       enable_burn: enableBurn,
       enable_mint: enableMint,
     },
-  }
-}
+  };
+};
 
 const formatBalances = (balances: Balance[], decimals: number): Balance[] =>
   balances.reduce(
@@ -49,7 +49,7 @@ const formatBalances = (balances: Balance[], decimals: number): Balance[] =>
             },
           ])
         : acc,
-    []
-  )
+    [],
+  );
 
-export { formatter }
+export { formatter };

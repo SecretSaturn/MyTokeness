@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import { Hint } from '../../UI/Forms'
+import { Hint } from "../../UI/Forms";
 
 const StyledHint = styled(Hint)`
   cursor: pointer;
@@ -9,6 +9,6 @@ const StyledHint = styled(Hint)`
   :hover {
     color: #fff;
   }
-`
+`;
 
-export { StyledHint }
+export { StyledHint };

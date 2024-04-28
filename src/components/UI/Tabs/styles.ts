@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface TabProps {
-  readonly selected?: boolean
-  readonly disabled?: boolean
+  readonly selected?: boolean;
+  readonly disabled?: boolean;
 }
 
 const Container = styled.div`
@@ -12,7 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0 ${(props) => props.theme.space.sm};
-`
+`;
 
 const Tab = styled.div<TabProps>`
   color: ${(props) => props.theme.font.colors.secondary}90;
@@ -29,10 +29,10 @@ const Tab = styled.div<TabProps>`
   }
 
   ::after {
-    display: ${(props) => (props.selected ? 'block' : 'none')};
+    display: ${(props) => (props.selected ? "block" : "none")};
     border-bottom: 2px solid ${(props) => props.theme.palette.green[300]};
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
     position: absolute;
     width: 100%;
@@ -44,6 +44,6 @@ const Tab = styled.div<TabProps>`
     color: ${props.theme.font.colors.disabled};
     pointer-events: none;
   `};
-`
+`;
 
-export { Container, Tab }
+export { Container, Tab };

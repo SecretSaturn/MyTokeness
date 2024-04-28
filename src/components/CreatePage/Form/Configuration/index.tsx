@@ -1,25 +1,25 @@
-import { memo } from 'react'
+import { memo } from "react";
 
-import MessageWithIcon from '../../../Common/MessageWithIcon'
-import { Header, Wrapper } from '../../../UI/Card'
-import { Field, Hint, Input, Label, ToggleField } from '../../../UI/Forms'
-import Toggle from '../../../UI/Forms/Toggle'
-import Store from '../../Store'
+import MessageWithIcon from "../../../Common/MessageWithIcon";
+import { Header, Wrapper } from "../../../UI/Card";
+import { Field, Hint, Input, Label, ToggleField } from "../../../UI/Forms";
+import Toggle from "../../../UI/Forms/Toggle";
+import Store from "../../Store";
 
 const Configuration = () => {
   // context store state
-  const adminAddress = Store.useStoreState((state) => state.adminAddress)
+  const adminAddress = Store.useStoreState((state) => state.adminAddress);
   const enablePublicTokenSupply = Store.useStoreState(
-    (state) => state.enablePublicTokenSupply
-  )
-  const enableDeposit = Store.useStoreState((state) => state.enableDeposit)
-  const enableRedeem = Store.useStoreState((state) => state.enableRedeem)
-  const enableMint = Store.useStoreState((state) => state.enableMint)
-  const enableBurn = Store.useStoreState((state) => state.enableBurn)
-  const error = Store.useStoreState((state) => state.validation.adminAddress)
+    (state) => state.enablePublicTokenSupply,
+  );
+  const enableDeposit = Store.useStoreState((state) => state.enableDeposit);
+  const enableRedeem = Store.useStoreState((state) => state.enableRedeem);
+  const enableMint = Store.useStoreState((state) => state.enableMint);
+  const enableBurn = Store.useStoreState((state) => state.enableBurn);
+  const error = Store.useStoreState((state) => state.validation.adminAddress);
 
   // context store actions
-  const setState = Store.useStoreActions((actions) => actions.setState)
+  const setState = Store.useStoreActions((actions) => actions.setState);
 
   return (
     <>
@@ -31,7 +31,7 @@ const Configuration = () => {
           <Input
             value={adminAddress}
             onChange={(e) =>
-              setState({ key: 'adminAddress', data: e.currentTarget.value })
+              setState({ key: "adminAddress", data: e.currentTarget.value })
             }
             placeholder="secret1gvjcte2asddt09394s3r2aqhllgchg4608fmew"
           />
@@ -44,7 +44,7 @@ const Configuration = () => {
             checked={enablePublicTokenSupply}
             onChange={() =>
               setState({
-                key: 'enablePublicTokenSupply',
+                key: "enablePublicTokenSupply",
                 data: !enablePublicTokenSupply,
               })
             }
@@ -58,7 +58,7 @@ const Configuration = () => {
               checked={enableDeposit}
               onChange={() =>
                 setState({
-                  key: 'enableDeposit',
+                  key: "enableDeposit",
                   data: !enableDeposit,
                 })
               }
@@ -77,7 +77,7 @@ const Configuration = () => {
               checked={enableRedeem}
               onChange={() =>
                 setState({
-                  key: 'enableRedeem',
+                  key: "enableRedeem",
                   data: !enableRedeem,
                 })
               }
@@ -94,7 +94,7 @@ const Configuration = () => {
             checked={enableMint}
             onChange={() =>
               setState({
-                key: 'enableMint',
+                key: "enableMint",
                 data: !enableMint,
               })
             }
@@ -107,7 +107,7 @@ const Configuration = () => {
             checked={enableBurn}
             onChange={() =>
               setState({
-                key: 'enableBurn',
+                key: "enableBurn",
                 data: !enableBurn,
               })
             }
@@ -115,7 +115,7 @@ const Configuration = () => {
         </ToggleField>
       </Wrapper>
     </>
-  )
-}
+  );
+};
 
-export default memo(Configuration)
+export default memo(Configuration);

@@ -1,87 +1,87 @@
-import { FC, memo, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { FC, memo, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import {
   HandleMsgSetContractStatus,
   QueryContractStatus,
   ResultContractStatus,
-} from '../../../../interface/snip20'
-import { MAX_GAS } from '../../../../utils/constants'
-import parseErrorMsg from '../../../../utils/parseErrorMsg'
-import { useStoreState } from '../../../hooks/storeHooks'
-import useMutationConnectWallet from '../../../hooks/useMutationConnectWallet'
-import useMutationExeContract from '../../../hooks/useMutationExeContract'
-import useMutationGetAccounts from '../../../hooks/useMutationGetAccounts'
-import useQueryContract from '../../../hooks/useQueryContract'
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import MessageWithIcon from '../../Common/MessageWithIcon'
-import { Card, Header, Wrapper } from '../../UI/Card'
-import { Option, Select } from '../../UI/Forms'
-import { SelectWrapper } from './styles'
+} from "../../../../interface/snip20";
+import { MAX_GAS } from "../../../../utils/constants";
+import parseErrorMsg from "../../../../utils/parseErrorMsg";
+import { useStoreState } from "../../../hooks/storeHooks";
+import useMutationConnectWallet from "../../../hooks/useMutationConnectWallet";
+import useMutationExeContract from "../../../hooks/useMutationExeContract";
+import useMutationGetAccounts from "../../../hooks/useMutationGetAccounts";
+import useQueryContract from "../../../hooks/useQueryContract";
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import MessageWithIcon from "../../Common/MessageWithIcon";
+import { Card, Header, Wrapper } from "../../UI/Card";
+import { Option, Select } from "../../UI/Forms";
+import { SelectWrapper } from "./styles";
 
 const OPTIONS = {
-  normal_run: 'Active',
-  stop_all_but_redeems: 'Only redeems',
-  stop_all: 'Inactive',
-}
+  normal_run: "Active",
+  stop_all_but_redeems: "Only redeems",
+  stop_all: "Inactive",
+};
 
-type Options = keyof typeof OPTIONS | ''
+type Options = keyof typeof OPTIONS | "";
 
 type Props = {
-  contractAddress: string
-  enableButton?: boolean
-}
+  contractAddress: string;
+  enableButton?: boolean;
+};
 
 const ChangeStatusCard: FC<Props> = ({ contractAddress, enableButton }) => {
   // store state
-  const isConnected = useStoreState((state) => state.auth.isWalletConnected)
+  const isConnected = useStoreState((state) => state.auth.isWalletConnected);
 
   // custom hooks
   const { mutateAsync: connect, isLoading: connecting } =
-    useMutationConnectWallet()
+    useMutationConnectWallet();
   const { mutateAsync: getAccounts, isLoading: gettingAccounts } =
-    useMutationGetAccounts()
+    useMutationGetAccounts();
   const { mutate, isLoading: updating } =
-    useMutationExeContract<HandleMsgSetContractStatus>()
+    useMutationExeContract<HandleMsgSetContractStatus>();
 
   const { data } = useQueryContract<QueryContractStatus, ResultContractStatus>(
-    ['contractStatus', contractAddress],
+    ["contractStatus", contractAddress],
     contractAddress,
     { contract_status: {} },
-    { enabled: !!contractAddress, refetchOnWindowFocus: false, retry: false }
-  )
+    { enabled: !!contractAddress, refetchOnWindowFocus: false, retry: false },
+  );
 
   // component state
   const [status, setStatus] = useState<Options>(
-    data?.contract_status.status || ''
-  )
-  const [error, setError] = useState('')
+    data?.contract_status.status || "",
+  );
+  const [error, setError] = useState("");
 
   // lifecycle
   useEffect(() => {
-    setError('')
-  }, [status])
+    setError("");
+  }, [status]);
 
   useEffect(() => {
-    data && setStatus(data.contract_status.status)
-  }, [data])
+    data && setStatus(data.contract_status.status);
+  }, [data]);
 
   useEffect(() => {
-    !contractAddress && setStatus('')
-  }, [contractAddress])
+    !contractAddress && setStatus("");
+  }, [contractAddress]);
 
   const onUpdate = async () => {
     if (!status) {
-      setError('Please select a valid status.')
-      return
+      setError("Please select a valid status.");
+      return;
     }
 
     if (!isConnected) {
       try {
-        await connect()
-        await getAccounts()
+        await connect();
+        await getAccounts();
       } catch (error) {
-        return
+        return;
       }
     }
 
@@ -93,14 +93,14 @@ const ChangeStatusCard: FC<Props> = ({ contractAddress, enableButton }) => {
       },
       {
         onSuccess: () => {
-          toast.success('Updated contract status.')
+          toast.success("Updated contract status.");
         },
         onError: (error) => {
-          toast.error(parseErrorMsg(error))
+          toast.error(parseErrorMsg(error));
         },
-      }
-    )
-  }
+      },
+    );
+  };
 
   return (
     <Card>
@@ -114,7 +114,7 @@ const ChangeStatusCard: FC<Props> = ({ contractAddress, enableButton }) => {
             onChange={(e) => setStatus(e.currentTarget.value as Options)}
             disabled={!enableButton}
           >
-            <Option disabled value={''}>
+            <Option disabled value={""}>
               Select an option
             </Option>
             {Object.entries(OPTIONS).map(([key, value]) => (
@@ -135,7 +135,7 @@ const ChangeStatusCard: FC<Props> = ({ contractAddress, enableButton }) => {
         />
       </Wrapper>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ChangeStatusCard)
+export default memo(ChangeStatusCard);

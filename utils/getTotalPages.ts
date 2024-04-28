@@ -1,3 +1,4 @@
-const getTotalPages = (total: number, limit: number) => Math.ceil(total / limit)
+const getTotalPages = (total: number, limit: number) =>
+  Math.ceil(total / limit);
 
-export default getTotalPages
+export default getTotalPages;

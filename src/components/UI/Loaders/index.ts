@@ -1,13 +1,13 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components";
 
-import Dots from './Dots'
+import Dots from "./Dots";
 
 interface SkeletonProps {
-  readonly height?: string
-  readonly width?: string
-  readonly circle?: boolean
-  readonly noflex?: boolean
-  readonly pill?: boolean
+  readonly height?: string;
+  readonly width?: string;
+  readonly circle?: boolean;
+  readonly noflex?: boolean;
+  readonly pill?: boolean;
 }
 
 const StyledDots = styled(Dots)`
@@ -19,7 +19,7 @@ const StyledDots = styled(Dots)`
   top: 0;
   width: 100%;
   height: 100%;
-`
+`;
 
 const shimmer = keyframes`
   0% {
@@ -28,12 +28,12 @@ const shimmer = keyframes`
   100% {
     background-position: 1000px 0; 
   }
-`
+`;
 
 const Skeleton = styled.div.attrs<SkeletonProps>(({ height, width }) => ({
   style: {
-    height: height || '14px',
-    width: width || '100%',
+    height: height || "14px",
+    width: width || "100%",
   },
 }))<SkeletonProps>`
   animation: 1.7s linear infinite forwards ${shimmer};
@@ -41,17 +41,17 @@ const Skeleton = styled.div.attrs<SkeletonProps>(({ height, width }) => ({
   background-image: ${(props) => props.theme.loaders.skeleton.highlightColor};
   background-repeat: no-repeat;
   background-size: 300px 100%;
-  border-radius: ${(props) => (props.circle ? '50%' : '4px')};
+  border-radius: ${(props) => (props.circle ? "50%" : "4px")};
   flex-shrink: 0;
-  ${(props) => !props.circle && 'flex: 1'};
-  ${(props) => props.noflex && 'flex: unset'};
-  ${(props) => props.pill && 'border-radius: 500px'};
-`
+  ${(props) => !props.circle && "flex: 1"};
+  ${(props) => props.noflex && "flex: unset"};
+  ${(props) => props.pill && "border-radius: 500px"};
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: ${(props) => props.theme.space.xs};
-`
+`;
 
-export { StyledDots, Skeleton, Wrapper }
+export { StyledDots, Skeleton, Wrapper };

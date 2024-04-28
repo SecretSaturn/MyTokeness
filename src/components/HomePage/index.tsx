@@ -1,7 +1,7 @@
-import Icon from '../Icons'
-import { Container, InnerContainer } from '../UI/Containers'
-import { Text } from '../UI/Typography'
-import { Brand, StyledIcon, Title, Wrapper } from './styles'
+import Icon from "../Icons";
+import { Container, InnerContainer } from "../UI/Containers";
+import { Text } from "../UI/Typography";
+import { Brand, StyledIcon, Title, Wrapper } from "./styles";
 
 const Home = (): JSX.Element => {
   return (
@@ -21,7 +21,7 @@ const Home = (): JSX.Element => {
         </Wrapper>
       </InnerContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

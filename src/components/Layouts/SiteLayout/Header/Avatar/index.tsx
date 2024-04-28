@@ -1,14 +1,14 @@
-import commaNumber from 'comma-number'
-import { memo } from 'react'
-import { useQuery } from 'react-query'
+import commaNumber from "comma-number";
+import { memo } from "react";
+import { useQuery } from "react-query";
 
-import { queryChain } from '../../../../../../utils/secretjs'
-import toBiggestDenomination from '../../../../../../utils/toBiggestDenomination'
-import truncateAddress from '../../../../../../utils/truncateAddress'
-import { useStoreState } from '../../../../../hooks/storeHooks'
-import useCopyToClipboard from '../../../../../hooks/useCopyToClipboard'
-import { Skeleton } from '../../../../UI/Loaders'
-import Tooltip from '../../../../UI/Tooltip'
+import { queryChain } from "../../../../../../utils/secretjs";
+import toBiggestDenomination from "../../../../../../utils/toBiggestDenomination";
+import truncateAddress from "../../../../../../utils/truncateAddress";
+import { useStoreState } from "../../../../../hooks/storeHooks";
+import useCopyToClipboard from "../../../../../hooks/useCopyToClipboard";
+import { Skeleton } from "../../../../UI/Loaders";
+import Tooltip from "../../../../UI/Tooltip";
 import {
   Address,
   Circle,
@@ -17,31 +17,31 @@ import {
   Outline,
   StyledIcon,
   Wrapper,
-} from './styles'
+} from "./styles";
 
 const Avatar = () => {
   // store state
-  const walletAddress = useStoreState((state) => state.auth.connectedAddress)
+  const walletAddress = useStoreState((state) => state.auth.connectedAddress);
 
   const { data, isLoading } = useQuery(
-    ['nativeBalance', walletAddress],
+    ["nativeBalance", walletAddress],
     async () => {
       const result = await queryChain.query.bank.balance({
         denom: "uscrt",
         address: walletAddress,
       });
-      return result; 
+      return result;
     },
-    { enabled: !!walletAddress }
+    { enabled: !!walletAddress },
   );
   // custom hooks
-  const [status, copy] = useCopyToClipboard(walletAddress)
+  const [status, copy] = useCopyToClipboard(walletAddress);
 
   return (
     <Container>
       <InfoPill left>
         <Tooltip
-          content={status === 'copied' ? 'Copied!' : 'Copy'}
+          content={status === "copied" ? "Copied!" : "Copy"}
           hideOnClick={false}
           placement="bottom-end"
           offset={[0, 15]}
@@ -63,13 +63,11 @@ const Avatar = () => {
             <Skeleton width="50px" /> &nbsp;&nbsp;SCRT
           </>
         ) : (
-          `${commaNumber(
-            toBiggestDenomination(data?.balance?.amount, 6)
-          )} SCRT`
+          `${commaNumber(toBiggestDenomination(data?.balance?.amount, 6))} SCRT`
         )}
       </InfoPill>
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Avatar)
+export default memo(Avatar);

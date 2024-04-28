@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface TabProps {
-  readonly selected?: boolean
+  readonly selected?: boolean;
 }
 
 const Container = styled.div`
@@ -13,7 +13,7 @@ const Container = styled.div`
   width: 30%;
   position: sticky;
   top: 75px;
-`
+`;
 
 const Tab = styled.div<TabProps>`
   color: ${(props) => props.theme.font.colors.secondary};
@@ -32,6 +32,6 @@ const Tab = styled.div<TabProps>`
     color: ${props.theme.font.colors.primary};
     font-weight: ${props.theme.font.weights.semibold};
   `}
-`
+`;
 
-export { Container, Tab }
+export { Container, Tab };

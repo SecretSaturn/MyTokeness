@@ -1,6 +1,6 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import { Skeleton } from '../../UI/Loaders'
+import { Skeleton } from "../../UI/Loaders";
 import {
   Body,
   Cell,
@@ -9,11 +9,11 @@ import {
   HeaderRow,
   Row,
   Table,
-} from '../../UI/Table'
+} from "../../UI/Table";
 
 type Props = {
-  rows: number
-}
+  rows: number;
+};
 
 const SkeletonTable: FC<Props> = ({ rows = 2 }) => (
   <>
@@ -55,6 +55,6 @@ const SkeletonTable: FC<Props> = ({ rows = 2 }) => (
       </Body>
     </Table>
   </>
-)
+);
 
-export default memo(SkeletonTable)
+export default memo(SkeletonTable);

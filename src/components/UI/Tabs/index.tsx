@@ -1,17 +1,17 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import { Container, Tab } from './styles'
+import { Container, Tab } from "./styles";
 
 interface Tab {
-  label: string
-  disabled?: boolean
+  label: string;
+  disabled?: boolean;
 }
 
 type Props = {
-  tabs: { [key: string]: Tab }
-  onClick?: (key: string) => void
-  tab?: string
-}
+  tabs: { [key: string]: Tab };
+  onClick?: (key: string) => void;
+  tab?: string;
+};
 
 const Tabs: FC<Props> = ({ tabs, onClick = () => null, tab }) => {
   return (
@@ -27,7 +27,7 @@ const Tabs: FC<Props> = ({ tabs, onClick = () => null, tab }) => {
         </Tab>
       ))}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Tabs)
+export default memo(Tabs);

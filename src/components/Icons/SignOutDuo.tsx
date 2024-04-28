@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
@@ -18,7 +18,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
         className="prefix__fa-primary"
       />
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

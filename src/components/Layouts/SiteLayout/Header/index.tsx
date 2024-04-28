@@ -1,31 +1,31 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { useStoreState } from '../../../../hooks/storeHooks'
-import useMutationConnectWallet from '../../../../hooks/useMutationConnectWallet'
-import useMutationGetAccounts from '../../../../hooks/useMutationGetAccounts'
-import ButtonWithLoading from '../../../Common/ButtonWithLoading'
-import Icon from '../../../Icons'
-import Tooltip from '../../../UI/Tooltip'
-import Avatar from './Avatar'
-import { Brand, Container, Name, StyledAchor, Wrapper } from './styles'
+import { useStoreState } from "../../../../hooks/storeHooks";
+import useMutationConnectWallet from "../../../../hooks/useMutationConnectWallet";
+import useMutationGetAccounts from "../../../../hooks/useMutationGetAccounts";
+import ButtonWithLoading from "../../../Common/ButtonWithLoading";
+import Icon from "../../../Icons";
+import Tooltip from "../../../UI/Tooltip";
+import Avatar from "./Avatar";
+import { Brand, Container, Name, StyledAchor, Wrapper } from "./styles";
 
 const Header = (): JSX.Element => {
   // store state
-  const isConnected = useStoreState((state) => state.auth.isWalletConnected)
+  const isConnected = useStoreState((state) => state.auth.isWalletConnected);
 
   // custom hooks
-  const { mutateAsync: connectWallet, isLoading } = useMutationConnectWallet()
+  const { mutateAsync: connectWallet, isLoading } = useMutationConnectWallet();
   const { mutate: getAccounts, isLoading: loadingAccounts } =
-    useMutationGetAccounts()
+    useMutationGetAccounts();
 
   const onClickConnect = async () => {
     try {
-      await connectWallet()
-      getAccounts()
+      await connectWallet();
+      getAccounts();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <Container>
@@ -49,7 +49,7 @@ const Header = (): JSX.Element => {
         )}
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import Home from '../src/components/HomePage'
-import { getLayout } from '../src/components/Layouts/SiteLayout'
-import { HEAD_TITLE_TEXT } from '../utils/constants'
+import Home from "../src/components/HomePage";
+import { getLayout } from "../src/components/Layouts/SiteLayout";
+import { HEAD_TITLE_TEXT } from "../utils/constants";
 
 const Page = (): JSX.Element => (
   <>
@@ -11,8 +11,8 @@ const Page = (): JSX.Element => (
     </Head>
     <Home />
   </>
-)
+);
 
-Page.getLayout = getLayout
+Page.getLayout = getLayout;
 
-export default Page
+export default Page;

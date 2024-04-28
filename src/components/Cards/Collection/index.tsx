@@ -1,7 +1,7 @@
-import { FC, MouseEvent, memo } from 'react'
+import { FC, MouseEvent, memo } from "react";
 
-import { IconName } from '../../Icons'
-import { StyledIcon as Icon } from '../../UI/Buttons'
+import { IconName } from "../../Icons";
+import { StyledIcon as Icon } from "../../UI/Buttons";
 import {
   Container,
   Label,
@@ -10,16 +10,16 @@ import {
   StyledIcon,
   StyledIconButton,
   StyledTag,
-} from './styles'
+} from "./styles";
 
 type Props = {
-  name: string
-  icon: IconName
-  onClick: () => void
-  loading?: boolean
-  isOwner?: boolean
-  onClickRemove?: (e: MouseEvent<HTMLButtonElement>) => void
-}
+  name: string;
+  icon: IconName;
+  onClick: () => void;
+  loading?: boolean;
+  isOwner?: boolean;
+  onClickRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
+};
 
 const Collection: FC<Props> = ({
   name,
@@ -49,7 +49,7 @@ const Collection: FC<Props> = ({
       )}
       {isOwner && !loading && <StyledTag color="blue">Owner</StyledTag>}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Collection)
+export default memo(Collection);

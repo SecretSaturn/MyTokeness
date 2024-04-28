@@ -1,20 +1,20 @@
-import { a } from 'react-spring'
-import styled from 'styled-components'
+import { a } from "react-spring";
+import styled from "styled-components";
 
-import Icon from '../../../../Icons'
+import Icon from "../../../../Icons";
 
 interface HeaderProps {
-  readonly clickable?: boolean
-  readonly selected?: boolean
+  readonly clickable?: boolean;
+  readonly selected?: boolean;
 }
 
 interface IconProps {
-  readonly small?: string
+  readonly small?: string;
 }
 
 const Container = styled(a.div)`
   overflow: hidden;
-`
+`;
 
 const Header = styled.div<HeaderProps>`
   align-items: center;
@@ -31,7 +31,7 @@ const Header = styled.div<HeaderProps>`
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
     background-color: ${(props) => props.theme.sidebar.tab.indicator};
-    content: '';
+    content: "";
     ${(props) => !props.selected && `display: none`};
     position: absolute;
     height: 90%;
@@ -42,37 +42,37 @@ const Header = styled.div<HeaderProps>`
   :hover {
     background: ${(props) => props.theme.sidebar.tab.bg.hover};
   }
-`
+`;
 
 const Wrapper = styled.div`
   align-items: center;
   column-gap: ${(props) => props.theme.space.sm};
   display: flex;
   flex-direction: row;
-`
+`;
 
 const Label = styled.div`
   color: ${(props) => props.theme.sidebar.tab.color};
   font-size: ${(props) => props.theme.font.sizes.md};
   font-weight: ${(props) => props.theme.font.weights.semibold};
-`
+`;
 
 const StyledIcon = styled(Icon)<IconProps>`
   fill: ${(props) => props.theme.sidebar.tab.color};
-  height: ${(props) => (props.small === 'true' ? '1.5rem' : '2rem')};
-  width: ${(props) => (props.small === 'true' ? '1.5rem' : '2rem')};
-`
+  height: ${(props) => (props.small === "true" ? "1.5rem" : "2rem")};
+  width: ${(props) => (props.small === "true" ? "1.5rem" : "2rem")};
+`;
 
 const Menu = styled(a.div)`
   background: ${(props) => props.theme.bg};
   display: flex;
   flex-direction: column;
-`
+`;
 
 const Item = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
-`
+`;
 
-export { Container, Header, Label, StyledIcon, Wrapper, Menu, Item }
+export { Container, Header, Label, StyledIcon, Wrapper, Menu, Item };

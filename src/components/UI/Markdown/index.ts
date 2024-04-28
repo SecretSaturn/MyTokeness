@@ -1,5 +1,5 @@
-import ReactMarkdown from 'react-markdown'
-import styled from 'styled-components'
+import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
 
 const Markdown = styled(ReactMarkdown)`
   & > h1,
@@ -24,6 +24,6 @@ const Markdown = styled(ReactMarkdown)`
     color: ${(props) => props.theme.font.colors.secondary};
     font-size: ${(props) => props.theme.font.sizes.md};
   }
-`
+`;
 
-export { Markdown }
+export { Markdown };

@@ -1,119 +1,125 @@
-import { FC, FormEvent, memo, useEffect, useReducer, useState } from 'react'
-import { toast } from 'react-toastify'
+import { FC, FormEvent, memo, useEffect, useReducer, useState } from "react";
+import { toast } from "react-toastify";
 
-import { HandleMsgMint } from '../../../../interface/snip20'
-import { MAX_GAS } from '../../../../utils/constants'
-import parseErrorMsg from '../../../../utils/parseErrorMsg'
-import reducer from '../../../../utils/reducer'
-import { amountPattern } from '../../../../utils/regexPatterns'
-import { useStoreState } from '../../../hooks/storeHooks'
-import useMutationConnectWallet from '../../../hooks/useMutationConnectWallet'
-import useMutationExeContract from '../../../hooks/useMutationExeContract'
-import useMutationGetAccounts from '../../../hooks/useMutationGetAccounts'
-import useQuerySnip20Info from '../../../hooks/useQuerySnip20Info'
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import MessageWithIcon from '../../Common/MessageWithIcon'
-import { Card, Header, Wrapper } from '../../UI/Card'
-import { Field, Input, InputGroup, Label, Symbol } from '../../UI/Forms'
-import { StyledDots } from '../../UI/Loaders'
-import { format, validate } from './lib'
+import { HandleMsgMint } from "../../../../interface/snip20";
+import { MAX_GAS } from "../../../../utils/constants";
+import parseErrorMsg from "../../../../utils/parseErrorMsg";
+import reducer from "../../../../utils/reducer";
+import { amountPattern } from "../../../../utils/regexPatterns";
+import { useStoreState } from "../../../hooks/storeHooks";
+import useMutationConnectWallet from "../../../hooks/useMutationConnectWallet";
+import useMutationExeContract from "../../../hooks/useMutationExeContract";
+import useMutationGetAccounts from "../../../hooks/useMutationGetAccounts";
+import useQuerySnip20Info from "../../../hooks/useQuerySnip20Info";
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import MessageWithIcon from "../../Common/MessageWithIcon";
+import { Card, Header, Wrapper } from "../../UI/Card";
+import { Field, Input, InputGroup, Label, Symbol } from "../../UI/Forms";
+import { StyledDots } from "../../UI/Loaders";
+import { format, validate } from "./lib";
 
 interface Errors {
-  amount: string
-  recipient: string
+  amount: string;
+  recipient: string;
 }
-type Reducer = (p: Errors, u: Partial<Errors>) => Errors
+type Reducer = (p: Errors, u: Partial<Errors>) => Errors;
 
 type Props = {
-  contractAddress: string
-  enableButton?: boolean
-  success?: boolean
-}
+  contractAddress: string;
+  enableButton?: boolean;
+  success?: boolean;
+};
 
-const ERRORS = { amount: '', recipient: '' }
+const ERRORS = { amount: "", recipient: "" };
 
 const MintCard: FC<Props> = ({ success, enableButton, contractAddress }) => {
   // store state
-  const isConnected = useStoreState((state) => state.auth.isWalletConnected)
+  const isConnected = useStoreState((state) => state.auth.isWalletConnected);
 
   // component state
-  const [amount, setAmount] = useState('')
-  const [recipient, setRecipient] = useState('')
-  const [memo, setMemo] = useState('')
-  const [errors, setErrors] = useReducer<Reducer>(reducer, ERRORS)
+  const [amount, setAmount] = useState("");
+  const [recipient, setRecipient] = useState("");
+  const [memo, setMemo] = useState("");
+  const [errors, setErrors] = useReducer<Reducer>(reducer, ERRORS);
 
   // custom hooks
   const { mutateAsync: connect, isLoading: connecting } =
-    useMutationConnectWallet()
+    useMutationConnectWallet();
   const { mutateAsync: getAccounts, isLoading: gettingAccounts } =
-    useMutationGetAccounts()
-  const { mutate, isLoading: minting } = useMutationExeContract<HandleMsgMint>()
+    useMutationGetAccounts();
+  const { mutate, isLoading: minting } =
+    useMutationExeContract<HandleMsgMint>();
 
   const { data, isLoading: fetchingInfo } = useQuerySnip20Info(
     contractAddress,
     {
       enabled: success && !!contractAddress,
-    }
-  )
+    },
+  );
 
   // lifecycles
   useEffect(() => {
-    setAmount('')
-  }, [data])
+    setAmount("");
+  }, [data]);
 
   useEffect(() => {
-    setErrors({ recipient: '' })
-  }, [recipient])
+    setErrors({ recipient: "" });
+  }, [recipient]);
 
   useEffect(() => {
-    setErrors({ amount: '' })
-  }, [amount])
+    setErrors({ amount: "" });
+  }, [amount]);
 
   const onChangeAmount = (e: FormEvent<HTMLInputElement>) => {
-    const amount = e.currentTarget.value
+    const amount = e.currentTarget.value;
     if (
       !amount ||
       amount.match(amountPattern(data?.token_info.decimals as number))
     ) {
-      setAmount(amount)
+      setAmount(amount);
     }
-  }
+  };
 
   const onMint = async () => {
-    const { hasErrors, ...rest } = validate(recipient, amount)
+    const { hasErrors, ...rest } = validate(recipient, amount);
 
-    setErrors(rest)
+    setErrors(rest);
 
     if (hasErrors) {
-      return
+      return;
     }
 
     if (!isConnected) {
       try {
-        await connect()
-        await getAccounts()
+        await connect();
+        await getAccounts();
       } catch (error) {
-        throw error
+        throw error;
       }
     }
 
-    const handleMsg = format(recipient, memo, amount, data?.token_info.decimals)
+    const handleMsg = format(
+      recipient,
+      memo,
+      amount,
+      data?.token_info.decimals,
+    );
 
     mutate(
       { contractAddress, maxGas: MAX_GAS.SNIP20.MINT, handleMsg },
       {
         onSuccess: () => {
-          toast.success(`Minted ${amount} ${data?.token_info.symbol}`)
-          setAmount('')
-          setRecipient('')
-          setMemo('')
+          toast.success(`Minted ${amount} ${data?.token_info.symbol}`);
+          setAmount("");
+          setRecipient("");
+          setMemo("");
         },
         onError: (error) => {
-          toast.error(parseErrorMsg(error))
+          toast.error(parseErrorMsg(error));
         },
-      }
-    )
-  }
+      },
+    );
+  };
 
   return (
     <Card>
@@ -136,7 +142,7 @@ const MintCard: FC<Props> = ({ success, enableButton, contractAddress }) => {
             <Input value={amount} onChange={onChangeAmount} placeholder="0.0" />
             <Symbol>
               {fetchingInfo && <StyledDots />}
-              {!fetchingInfo && !data && '--'}
+              {!fetchingInfo && !data && "--"}
               {!fetchingInfo && data?.token_info.symbol}
             </Symbol>
           </InputGroup>
@@ -161,7 +167,7 @@ const MintCard: FC<Props> = ({ success, enableButton, contractAddress }) => {
         />
       </Wrapper>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(MintCard)
+export default memo(MintCard);

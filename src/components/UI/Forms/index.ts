@@ -1,44 +1,44 @@
-import ReactSelect from 'react-select'
-import ReactAsyncSelect from 'react-select/async'
-import styled, { css } from 'styled-components'
+import ReactSelect from "react-select";
+import ReactAsyncSelect from "react-select/async";
+import styled, { css } from "styled-components";
 
-import Icon from '../../Icons'
+import Icon from "../../Icons";
 
-type Validation = 'error' | 'success' | 'warning'
+type Validation = "error" | "success" | "warning";
 
 export interface InputProps {
-  readonly validation?: Validation
-  readonly isCompact?: boolean
-  readonly uppercase?: boolean
+  readonly validation?: Validation;
+  readonly isCompact?: boolean;
+  readonly uppercase?: boolean;
 }
 
 interface FileUploadProps {
-  readonly isDragging?: boolean
-  readonly validation?: Validation
+  readonly isDragging?: boolean;
+  readonly validation?: Validation;
 }
 
 interface MessageProps {
-  readonly validation?: Validation
+  readonly validation?: Validation;
 }
 
 interface MessageIconProps {
-  readonly validation?: Validation
+  readonly validation?: Validation;
 }
 
 interface LabelProps {
-  readonly isRegular?: boolean
-  readonly disabled?: boolean
+  readonly isRegular?: boolean;
+  readonly disabled?: boolean;
 }
 
 interface HintProps {
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 const Field = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-`
+`;
 
 const Label = styled.label<LabelProps>`
   color: ${(props) =>
@@ -50,7 +50,7 @@ const Label = styled.label<LabelProps>`
     props.isRegular
       ? props.theme.font.weights.regular
       : props.theme.font.weights.semibold};
-`
+`;
 
 const Hint = styled.p<HintProps>`
   color: ${(props) =>
@@ -61,7 +61,7 @@ const Hint = styled.p<HintProps>`
   line-height: ${(props) => props.theme.font.lineHeights.md};
   margin-bottom: 0;
   margin-top: ${(props) => props.theme.space.xxs};
-`
+`;
 
 const Textarea = styled.textarea<InputProps>`
   appearance: none;
@@ -75,19 +75,22 @@ const Textarea = styled.textarea<InputProps>`
   padding: ${(props) => `${props.theme.space.sm} ${props.theme.space.sm}`};
   outline: none;
   resize: vertical;
-  transition: border-color 0.25s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s,
-    background-color 0.25s ease-in-out 0s, color 0.25s ease-in-out 0s;
+  transition:
+    border-color 0.25s ease-in-out 0s,
+    box-shadow 0.1s ease-in-out 0s,
+    background-color 0.25s ease-in-out 0s,
+    color 0.25s ease-in-out 0s;
   width: 100%;
 
   ${(props) =>
-    props.validation === 'error' &&
+    props.validation === "error" &&
     `border-color: ${props.theme.forms.input.border.color.defaultError}`};
 
   :hover {
     border-color: ${(props) => props.theme.forms.input.border.color.hover};
 
     ${(props) =>
-      props.validation === 'error' &&
+      props.validation === "error" &&
       `border-color:  ${props.theme.forms.input.border.color.hoverError}`};
   }
 
@@ -97,7 +100,7 @@ const Textarea = styled.textarea<InputProps>`
       0px 3px;
 
     ${(props) =>
-      props.validation === 'error' &&
+      props.validation === "error" &&
       `
         border-color: ${props.theme.forms.input.border.color.focusError};
         box-shadow: ${props.theme.forms.input.shadow.color.focusError} 0px 0px
@@ -112,7 +115,7 @@ const Textarea = styled.textarea<InputProps>`
   ::placeholder {
     color: ${(props) => props.theme.forms.input.placeholder.color};
   }
-`
+`;
 
 const InputGroup = styled.div`
   display: inline-flex;
@@ -136,7 +139,7 @@ const InputGroup = styled.div`
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
   }
-`
+`;
 
 const Input = styled.input<InputProps>`
   appearance: none;
@@ -146,23 +149,26 @@ const Input = styled.input<InputProps>`
   box-sizing: border-box;
   color: ${(props) => props.theme.font.colors.primary};
   font-size: ${(props) => props.theme.font.sizes.md};
-  height: ${(props) => (props.isCompact ? '34px' : '40px')};
+  height: ${(props) => (props.isCompact ? "34px" : "40px")};
   padding: ${(props) => `0 ${props.theme.space.sm}`};
   outline: none;
-  ${(props) => props.uppercase && 'text-transform: uppercase'};
-  transition: border-color 0.25s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s,
-    background-color 0.25s ease-in-out 0s, color 0.25s ease-in-out 0s;
+  ${(props) => props.uppercase && "text-transform: uppercase"};
+  transition:
+    border-color 0.25s ease-in-out 0s,
+    box-shadow 0.1s ease-in-out 0s,
+    background-color 0.25s ease-in-out 0s,
+    color 0.25s ease-in-out 0s;
   width: 100%;
 
   ${(props) =>
-    props.validation === 'error' &&
+    props.validation === "error" &&
     `border-color: ${props.theme.forms.input.border.color.defaultError}`};
 
   :hover {
     border-color: ${(props) => props.theme.forms.input.border.color.hover};
 
     ${(props) =>
-      props.validation === 'error' &&
+      props.validation === "error" &&
       `border-color:  ${props.theme.forms.input.border.color.hoverError}`};
   }
 
@@ -172,7 +178,7 @@ const Input = styled.input<InputProps>`
       0px 3px;
 
     ${(props) =>
-      props.validation === 'error' &&
+      props.validation === "error" &&
       `
         border-color: ${props.theme.forms.input.border.color.focusError};
         box-shadow: ${props.theme.forms.input.shadow.color.focusError} 0px 0px
@@ -196,7 +202,7 @@ const Input = styled.input<InputProps>`
         0px 0px 0px 3px;
     }
   }
-`
+`;
 
 const FileUpload = styled.div<FileUploadProps>`
   background-color: ${(props) =>
@@ -208,11 +214,12 @@ const FileUpload = styled.div<FileUploadProps>`
   border-radius: ${(props) => props.theme.border.radii.md};
   cursor: pointer;
   outline: none;
-  transition: background-color 0.3s ease-in-out,
+  transition:
+    background-color 0.3s ease-in-out,
     border-color 0.25s ease-in-out 0s;
 
   ${(props) =>
-    props.validation === 'error' &&
+    props.validation === "error" &&
     `border-color: ${props.theme.forms.fileUpload.border.color.error}`};
 
   :hover {
@@ -222,7 +229,7 @@ const FileUpload = styled.div<FileUploadProps>`
   :active {
     background-color: ${(props) => props.theme.forms.fileUpload.bg.active};
   }
-`
+`;
 
 const Message = styled.p<MessageProps>`
   color: ${(props) => props.theme.font.colors.secondary};
@@ -230,8 +237,8 @@ const Message = styled.p<MessageProps>`
   margin: 0;
 
   ${(props) =>
-    props.validation === 'error' && `color: ${props.theme.font.colors.error}`};
-`
+    props.validation === "error" && `color: ${props.theme.font.colors.error}`};
+`;
 
 const MessageIcon = styled(Icon)<MessageIconProps>`
   fill: ${(props) => props.theme.icon.colors.secondary};
@@ -239,15 +246,15 @@ const MessageIcon = styled(Icon)<MessageIconProps>`
   width: 1.6rem;
 
   ${(props) =>
-    props.validation === 'error' && `fill: ${props.theme.icon.colors.error}`};
-`
+    props.validation === "error" && `fill: ${props.theme.icon.colors.error}`};
+`;
 
 const MessageWrapper = styled.div`
   align-items: center;
   column-gap: ${(props) => props.theme.space.xs};
   display: flex;
   margin-top: ${(props) => props.theme.space.xs};
-`
+`;
 
 const Symbol = styled.div`
   align-items: center;
@@ -262,7 +269,7 @@ const Symbol = styled.div`
   padding: 0 ${(props) => props.theme.space.sm};
   position: relative;
   min-width: 40px;
-`
+`;
 
 const Select = styled.select`
   appearance: none;
@@ -278,22 +285,22 @@ const Select = styled.select`
   :focus {
     outline: none;
   }
-`
+`;
 
-const Option = styled.option``
+const Option = styled.option``;
 
 const ToggleField = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const ToggleWrapper = styled.div`
   align-items: center;
   column-gap: ${(props) => props.theme.space.sm};
   display: flex;
   flex-direction: row;
-`
+`;
 
 const ReactSelectCss = css`
   ${Field}:not([hidden]) & {
@@ -351,15 +358,15 @@ const ReactSelectCss = css`
   .select__option {
     font-size: ${(props) => props.theme.font.sizes.md};
   }
-`
+`;
 
 const StyledSelect = styled(ReactSelect)`
   ${ReactSelectCss}
-`
+`;
 
 const StyledAsyncSelect = styled(ReactAsyncSelect)`
   ${ReactSelectCss}
-`
+`;
 
 export {
   Field,
@@ -379,4 +386,4 @@ export {
   ToggleWrapper,
   StyledSelect,
   StyledAsyncSelect,
-}
+};

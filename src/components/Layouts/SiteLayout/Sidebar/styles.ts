@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components";
 
-import { Modal } from '../../../UI/Modal'
+import { Modal } from "../../../UI/Modal";
 
 const flow = keyframes`
   0% {
@@ -12,7 +12,7 @@ const flow = keyframes`
   100% {
     background-position: 0 0;
   }
-`
+`;
 
 const Container = styled.div`
   align-self: flex-start;
@@ -23,7 +23,7 @@ const Container = styled.div`
   padding: ${(props) => props.theme.space.sm} 0;
   position: sticky;
   top: 62px;
-`
+`;
 
 const SectionHeader = styled.div`
   background: ${(props) => props.theme.bg};
@@ -32,7 +32,7 @@ const SectionHeader = styled.div`
   font-weight: ${(props) => props.theme.font.weights.bold};
   margin-top: ${(props) => props.theme.space.xs};
   padding: ${(props) => `${props.theme.space.xs} ${props.theme.space.md}`};
-`
+`;
 
 const Donation = styled.div`
   align-items: center;
@@ -58,7 +58,7 @@ const Donation = styled.div`
 
   ::before {
     border-radius: 500px;
-    content: '';
+    content: "";
     position: absolute;
     top: 0px;
     left: 0px;
@@ -88,7 +88,7 @@ const Donation = styled.div`
     box-shadow: 0px 0px 10px 1px #fff;
     border-radius: 500px;
     z-index: -1;
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -97,11 +97,11 @@ const Donation = styled.div`
     top: 0px;
     transition: background-color 0.3s ease;
   }
-`
+`;
 
 const StyledModal = styled(Modal)`
   /* max-width: 600px; */
   /* overflow-y: unset; */
-`
+`;
 
-export { Container, SectionHeader, Donation, StyledModal }
+export { Container, SectionHeader, Donation, StyledModal };

@@ -1,8 +1,8 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import Icon from '../../Icons'
-import { Button } from '../../UI/Buttons'
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import Icon from "../../Icons";
+import { Button } from "../../UI/Buttons";
 import {
   Buttons,
   CloseButton,
@@ -11,16 +11,16 @@ import {
   StyledIcon,
   Text,
   Title,
-} from '../../UI/Modal'
+} from "../../UI/Modal";
 
 type Props = {
-  title?: string
-  text?: string
-  toggle: () => void
-  onClickPrimary: () => void
-  loading?: boolean
-  buttonWidth?: number
-}
+  title?: string;
+  text?: string;
+  toggle: () => void;
+  onClickPrimary: () => void;
+  loading?: boolean;
+  buttonWidth?: number;
+};
 
 const WarningModal: FC<Props> = ({
   toggle,
@@ -52,6 +52,6 @@ const WarningModal: FC<Props> = ({
       />
     </Buttons>
   </>
-)
+);
 
-export default memo(WarningModal)
+export default memo(WarningModal);

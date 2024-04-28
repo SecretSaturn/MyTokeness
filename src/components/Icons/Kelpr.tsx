@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -9,7 +9,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <title>{'Artboard Copy 6@960w'}</title>
+      <title>{"Artboard Copy 6@960w"}</title>
       <defs>
         <radialGradient
           cx="90.867%"
@@ -108,7 +108,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
         />
       </g>
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

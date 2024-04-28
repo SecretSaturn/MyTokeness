@@ -1,16 +1,16 @@
-import commaNumber from 'comma-number'
-import { memo } from 'react'
+import commaNumber from "comma-number";
+import { memo } from "react";
 
-import { Header } from '../../../UI/Card'
-import { Label } from '../../../UI/Forms'
-import { Text } from '../../../UI/Typography'
-import Store from '../../Store'
-import { Content, Field } from './styles'
+import { Header } from "../../../UI/Card";
+import { Label } from "../../../UI/Forms";
+import { Text } from "../../../UI/Typography";
+import Store from "../../Store";
+import { Content, Field } from "./styles";
 
 const Review = () => {
   // context store state
-  const totalBalance = Store.useStoreState((state) => state.totalBalanceAmount)
-  const symbol = Store.useStoreState((state) => state.symbol)
+  const totalBalance = Store.useStoreState((state) => state.totalBalanceAmount);
+  const symbol = Store.useStoreState((state) => state.symbol);
 
   return (
     <>
@@ -19,12 +19,12 @@ const Review = () => {
         <Field>
           <Label>Total initial supply</Label>
           <Text>{`${commaNumber(
-            parseFloat(totalBalance)
+            parseFloat(totalBalance),
           )} ${symbol.toUpperCase()}`}</Text>
         </Field>
       </Content>
     </>
-  )
-}
+  );
+};
 
-export default memo(Review)
+export default memo(Review);

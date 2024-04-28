@@ -1,10 +1,10 @@
-import { FC, memo } from 'react'
-import { toast } from 'react-toastify'
+import { FC, memo } from "react";
+import { toast } from "react-toastify";
 
-import parseErrorMsg from '../../../../utils/parseErrorMsg'
-import useMutationSuggestToken from '../../../hooks/useMutationSuggestToken'
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import { Button, StyledIcon } from '../../UI/Buttons'
+import parseErrorMsg from "../../../../utils/parseErrorMsg";
+import useMutationSuggestToken from "../../../hooks/useMutationSuggestToken";
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import { Button, StyledIcon } from "../../UI/Buttons";
 import {
   Buttons,
   CloseButton,
@@ -12,30 +12,30 @@ import {
   Header,
   Text,
   Title,
-} from '../../UI/Modal'
+} from "../../UI/Modal";
 
 type Props = {
-  toggle?: () => void
-  contractAddress: string
-}
+  toggle?: () => void;
+  contractAddress: string;
+};
 
 const CreatedToken: FC<Props> = (props) => {
-  const { toggle = () => null, contractAddress } = props
+  const { toggle = () => null, contractAddress } = props;
 
   // custom hooks
-  const { mutate, isLoading } = useMutationSuggestToken()
+  const { mutate, isLoading } = useMutationSuggestToken();
 
   const onClickGetViewingKey = () => {
     mutate(contractAddress, {
       onSuccess: () => {
-        toast.success('Created viewing key.')
-        toggle()
+        toast.success("Created viewing key.");
+        toggle();
       },
       onError: (error) => {
-        toast.error(parseErrorMsg(error))
+        toast.error(parseErrorMsg(error));
       },
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -65,7 +65,7 @@ const CreatedToken: FC<Props> = (props) => {
         />
       </Buttons>
     </>
-  )
-}
+  );
+};
 
-export default memo(CreatedToken)
+export default memo(CreatedToken);

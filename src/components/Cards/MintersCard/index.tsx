@@ -1,98 +1,98 @@
-import { FC, memo, useEffect, useState } from 'react'
-import { useQueryClient } from 'react-query'
-import { toast } from 'react-toastify'
+import { FC, memo, useEffect, useState } from "react";
+import { useQueryClient } from "react-query";
+import { toast } from "react-toastify";
 
 import {
   HandleMsgSetMinters,
   QueryMinters,
   ResultMinters,
-} from '../../../../interface/snip20'
-import { MAX_GAS } from '../../../../utils/constants'
-import parseErrorMsg from '../../../../utils/parseErrorMsg'
-import { useStoreState } from '../../../hooks/storeHooks'
-import useMutationConnectWallet from '../../../hooks/useMutationConnectWallet'
-import useMutationExeContract from '../../../hooks/useMutationExeContract'
-import useMutationGetAccounts from '../../../hooks/useMutationGetAccounts'
-import useQueryContract from '../../../hooks/useQueryContract'
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import MessageWithIcon from '../../Common/MessageWithIcon'
-import { IconButton, StyledIcon } from '../../UI/Buttons'
-import { Card, Header, Wrapper } from '../../UI/Card'
-import { Input } from '../../UI/Forms'
-import { Skeleton } from '../../UI/Loaders'
-import { Text } from '../../UI/Typography'
-import { AddBar, Field } from './styles'
-import { validateAddress } from 'secretjs'
+} from "../../../../interface/snip20";
+import { MAX_GAS } from "../../../../utils/constants";
+import parseErrorMsg from "../../../../utils/parseErrorMsg";
+import { useStoreState } from "../../../hooks/storeHooks";
+import useMutationConnectWallet from "../../../hooks/useMutationConnectWallet";
+import useMutationExeContract from "../../../hooks/useMutationExeContract";
+import useMutationGetAccounts from "../../../hooks/useMutationGetAccounts";
+import useQueryContract from "../../../hooks/useQueryContract";
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import MessageWithIcon from "../../Common/MessageWithIcon";
+import { IconButton, StyledIcon } from "../../UI/Buttons";
+import { Card, Header, Wrapper } from "../../UI/Card";
+import { Input } from "../../UI/Forms";
+import { Skeleton } from "../../UI/Loaders";
+import { Text } from "../../UI/Typography";
+import { AddBar, Field } from "./styles";
+import { validateAddress } from "secretjs";
 
-const DUMMY_ARRAY = Array.from(Array(2).keys())
+const DUMMY_ARRAY = Array.from(Array(2).keys());
 
 type Props = {
-  contractAddress: string
-  enableButton?: boolean
-  success?: boolean
-}
+  contractAddress: string;
+  enableButton?: boolean;
+  success?: boolean;
+};
 
 const MintersCard: FC<Props> = ({ contractAddress, enableButton, success }) => {
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
   // store state
-  const isConnected = useStoreState((state) => state.auth.isWalletConnected)
+  const isConnected = useStoreState((state) => state.auth.isWalletConnected);
 
   // custom hooks
   const { mutateAsync: connect, isLoading: connecting } =
-    useMutationConnectWallet()
+    useMutationConnectWallet();
   const { mutateAsync: getAccounts, isLoading: gettingAccounts } =
-    useMutationGetAccounts()
+    useMutationGetAccounts();
   const { mutate, isLoading: updating } =
-    useMutationExeContract<HandleMsgSetMinters>()
+    useMutationExeContract<HandleMsgSetMinters>();
 
   const { data, isLoading } = useQueryContract<QueryMinters, ResultMinters>(
-    ['minters', contractAddress],
+    ["minters", contractAddress],
     contractAddress,
     { minters: {} },
-    { enabled: success && !!contractAddress, refetchOnWindowFocus: false }
-  )
+    { enabled: success && !!contractAddress, refetchOnWindowFocus: false },
+  );
 
   // component state
-  const [minters, setMinters] = useState<string[]>([])
-  const [address, setAddress] = useState('')
-  const [addError, setAddError] = useState('')
+  const [minters, setMinters] = useState<string[]>([]);
+  const [address, setAddress] = useState("");
+  const [addError, setAddError] = useState("");
 
   // lifecycle
   useEffect(() => {
     if (data) {
-      setMinters(data.minters.minters)
+      setMinters(data.minters.minters);
     } else {
-      setMinters([])
+      setMinters([]);
     }
-  }, [data])
+  }, [data]);
 
   useEffect(() => {
-    setAddError('')
-  }, [address])
+    setAddError("");
+  }, [address]);
 
   const onAdd = () => {
     if (!address || !validateAddress(address)) {
-      setAddError('Please enter a valid address.')
+      setAddError("Please enter a valid address.");
     } else if (minters.some((addy) => addy === address)) {
-      setAddError('Address is already listed.')
+      setAddError("Address is already listed.");
     } else {
-      setMinters(minters.concat([address]))
-      setAddress('')
+      setMinters(minters.concat([address]));
+      setAddress("");
     }
-  }
+  };
 
   const onMinus = (selectedAddy: string) => {
-    setMinters(minters.filter((addy) => addy !== selectedAddy))
-  }
+    setMinters(minters.filter((addy) => addy !== selectedAddy));
+  };
 
   const onUpdate = async () => {
     if (!isConnected) {
       try {
-        await connect()
-        await getAccounts()
+        await connect();
+        await getAccounts();
       } catch (error) {
-        throw error
+        throw error;
       }
     }
 
@@ -104,18 +104,18 @@ const MintersCard: FC<Props> = ({ contractAddress, enableButton, success }) => {
       },
       {
         onSuccess: () => {
-          toast.success('Updated minters.')
+          toast.success("Updated minters.");
           queryClient.setQueryData<ResultMinters>(
-            ['minters', contractAddress],
-            { minters: { minters } }
-          )
+            ["minters", contractAddress],
+            { minters: { minters } },
+          );
         },
         onError: (error) => {
-          toast.error(parseErrorMsg(error))
+          toast.error(parseErrorMsg(error));
         },
-      }
-    )
-  }
+      },
+    );
+  };
 
   return (
     <Card>
@@ -165,7 +165,7 @@ const MintersCard: FC<Props> = ({ contractAddress, enableButton, success }) => {
         />
       </Wrapper>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(MintersCard)
+export default memo(MintersCard);

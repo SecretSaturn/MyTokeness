@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
@@ -10,7 +10,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
       height="1rem"
       {...props}
     >
-      <title>{'Background'}</title>
+      <title>{"Background"}</title>
       <defs>
         <image
           width={512}
@@ -22,7 +22,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>): JSX.Element {
       <style />
       <use id="prefix__Background" href="#prefix__img1" x={0} y={0} />
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

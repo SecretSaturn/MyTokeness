@@ -1,65 +1,65 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC, memo, useMemo, useState } from 'react'
-import { useSpring, useTransition } from 'react-spring'
-import useDimensions from 'react-use-dimensions'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC, memo, useMemo, useState } from "react";
+import { useSpring, useTransition } from "react-spring";
+import useDimensions from "react-use-dimensions";
 
-import { Item as IItem } from '../../../../../../utils/constants'
-import Item from './Item'
-import { Container, Header, Label, Menu, StyledIcon, Wrapper } from './styles'
+import { Item as IItem } from "../../../../../../utils/constants";
+import Item from "./Item";
+import { Container, Header, Label, Menu, StyledIcon, Wrapper } from "./styles";
 
 type Props = {
-  item: IItem
-  section?: string
-  id?: string
-}
+  item: IItem;
+  section?: string;
+  id?: string;
+};
 
 const matchRoute = (path: string, section?: string, id?: string) => {
-  if (section === 'token') {
-    return path.split('/')[1] === id
-  } else if (section === 'nft') {
-    return path.split('/')[2] === id
+  if (section === "token") {
+    return path.split("/")[1] === id;
+  } else if (section === "nft") {
+    return path.split("/")[2] === id;
   } else {
-    return path === '/'
+    return path === "/";
   }
-}
+};
 
 const Tab: FC<Props> = (props) => {
-  const { item, section, id } = props
-  const { icon, label, menu, route, external } = item
+  const { item, section, id } = props;
+  const { icon, label, menu, route, external } = item;
 
-  const router = useRouter()
+  const router = useRouter();
   const selected = useMemo(
     () => matchRoute(router.asPath, section, id),
-    [router.asPath, section, id]
-  )
+    [router.asPath, section, id],
+  );
 
-  const [ref, dimensions] = useDimensions()
+  const [ref, dimensions] = useDimensions();
 
   // component state
-  const [open, setOpen] = useState(selected)
+  const [open, setOpen] = useState(selected);
 
   // react spring
   const { height } = useSpring({
     height: open ? (dimensions.height || 0) + 60 : 60,
-  })
+  });
   const transitions = useTransition(open, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-  })
+  });
 
   const onClickHeader = () => {
     if (menu) {
-      setOpen(!open)
+      setOpen(!open);
     } else {
       if (external) {
-        window.open(route, '_blank')
+        window.open(route, "_blank");
       } else {
-        router.push(route, undefined, { shallow: true })
+        router.push(route, undefined, { shallow: true });
       }
     }
-  }
+  };
 
   return (
     <Container style={{ height }}>
@@ -69,7 +69,7 @@ const Tab: FC<Props> = (props) => {
           <Label>{label}</Label>
         </Wrapper>
         {menu && (
-          <StyledIcon small="true" name={open ? 'caret-up' : 'caret-down'} />
+          <StyledIcon small="true" name={open ? "caret-up" : "caret-down"} />
         )}
         {external && <StyledIcon name="external-link-duo" small="true" />}
       </Header>
@@ -94,10 +94,10 @@ const Tab: FC<Props> = (props) => {
                   </Link>
                 ))}
               </Menu>
-            )
+            ),
         )}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Tab)
+export default memo(Tab);

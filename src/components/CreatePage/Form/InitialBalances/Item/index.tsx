@@ -1,17 +1,17 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import MessageWithIcon from '../../../../Common/MessageWithIcon'
-import { Input } from '../../../../UI/Forms'
-import { SetBalancePayload } from '../../../Store/model'
-import { Container, Field, Position, Wrapper } from './styles'
+import MessageWithIcon from "../../../../Common/MessageWithIcon";
+import { Input } from "../../../../UI/Forms";
+import { SetBalancePayload } from "../../../Store/model";
+import { Container, Field, Position, Wrapper } from "./styles";
 
 type Props = {
-  address: string
-  amount: string
-  index: number
-  onChange: (payload: SetBalancePayload) => void
-  errors: { address: string; amount: string }
-}
+  address: string;
+  amount: string;
+  index: number;
+  onChange: (payload: SetBalancePayload) => void;
+  errors: { address: string; amount: string };
+};
 
 const Item: FC<Props> = ({ address, amount, index, onChange, errors }) => (
   <Container>
@@ -45,6 +45,6 @@ const Item: FC<Props> = ({ address, amount, index, onChange, errors }) => (
       </Field>
     </Wrapper>
   </Container>
-)
+);
 
-export default memo(Item)
+export default memo(Item);

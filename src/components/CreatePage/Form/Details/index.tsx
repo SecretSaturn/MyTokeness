@@ -1,21 +1,21 @@
-import { memo } from 'react'
+import { memo } from "react";
 
-import MessageWithIcon from '../../../Common/MessageWithIcon'
-import { Header, Wrapper } from '../../../UI/Card'
-import { Field, Hint, Input, Label } from '../../../UI/Forms'
-import Store from '../../Store'
+import MessageWithIcon from "../../../Common/MessageWithIcon";
+import { Header, Wrapper } from "../../../UI/Card";
+import { Field, Hint, Input, Label } from "../../../UI/Forms";
+import Store from "../../Store";
 
 const Details = () => {
   // context store state
-  const name = Store.useStoreState((state) => state.name)
-  const symbol = Store.useStoreState((state) => state.symbol)
-  const decimals = Store.useStoreState((state) => state.decimals)
-  const errors = Store.useStoreState((state) => state.validation)
+  const name = Store.useStoreState((state) => state.name);
+  const symbol = Store.useStoreState((state) => state.symbol);
+  const decimals = Store.useStoreState((state) => state.decimals);
+  const errors = Store.useStoreState((state) => state.validation);
 
   // context store actions
-  const setState = Store.useStoreActions((actions) => actions.setState)
-  const setSymbol = Store.useStoreActions((actions) => actions.setSymbol)
-  const setDecimals = Store.useStoreActions((actions) => actions.setDecimals)
+  const setState = Store.useStoreActions((actions) => actions.setState);
+  const setSymbol = Store.useStoreActions((actions) => actions.setSymbol);
+  const setDecimals = Store.useStoreActions((actions) => actions.setDecimals);
 
   return (
     <>
@@ -27,7 +27,7 @@ const Details = () => {
           <Input
             value={name}
             onChange={(e) =>
-              setState({ key: 'name', data: e.currentTarget.value })
+              setState({ key: "name", data: e.currentTarget.value })
             }
             maxLength={30}
             placeholder="Secret Garden"
@@ -66,7 +66,7 @@ const Details = () => {
         </Field>
       </Wrapper>
     </>
-  )
-}
+  );
+};
 
-export default memo(Details)
+export default memo(Details);

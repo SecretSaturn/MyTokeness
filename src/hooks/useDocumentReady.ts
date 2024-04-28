@@ -1,30 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 const useDocumentReady = () => {
-  const [ready, setReady] = useState(false)
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    let isMounted = true
-    if (document.readyState === 'complete') {
+    let isMounted = true;
+    if (document.readyState === "complete") {
       if (isMounted) {
-        setReady(true)
+        setReady(true);
       }
     } else {
       window.onload = () => {
         if (isMounted) {
-          setReady(true)
+          setReady(true);
         }
-      }
+      };
     }
 
     return () => {
-      isMounted = false
-    }
-  }, [])
+      isMounted = false;
+    };
+  }, []);
 
   return {
     ready,
-  }
-}
+  };
+};
 
-export default useDocumentReady
+export default useDocumentReady;

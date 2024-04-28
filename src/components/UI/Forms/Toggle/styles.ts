@@ -1,13 +1,13 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface CheckBoxLabelProps {
-  readonly disabled?: boolean
+  readonly disabled?: boolean;
 }
 
 const CheckBoxWrapper = styled.div`
   position: relative;
   height: 20px;
-`
+`;
 
 const CheckBoxLabel = styled.label<CheckBoxLabelProps>`
   position: absolute;
@@ -30,7 +30,7 @@ const CheckBoxLabel = styled.label<CheckBoxLabelProps>`
   }
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     border-radius: 50%;
     width: 12px;
@@ -47,7 +47,7 @@ const CheckBoxLabel = styled.label<CheckBoxLabelProps>`
       background-color: ${props.theme.forms.toggle.bg.unchecked.disabled};
       pointer-events: none;
   `}
-`
+`;
 
 const CheckBox = styled.input`
   opacity: 0;
@@ -70,7 +70,7 @@ const CheckBox = styled.input`
     }
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       border-radius: 50%;
       width: 12px;
@@ -79,6 +79,6 @@ const CheckBox = styled.input`
       transition: 0.2s;
     }
   }
-`
+`;
 
-export { CheckBoxWrapper, CheckBoxLabel, CheckBox }
+export { CheckBoxWrapper, CheckBoxLabel, CheckBox };

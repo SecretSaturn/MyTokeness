@@ -1,1 +1,1 @@
-declare module 'comma-number'
+declare module "comma-number";

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FC } from 'react'
+import { FC } from "react";
 
-import { SIDEBAR_TABS } from '../../../../../utils/constants'
-import useToggle from '../../../../hooks/useToggle'
-import Icon from '../../../Icons'
-import { Container, Donation, SectionHeader, StyledModal } from './styles'
-import Tab from './Tab'
+import { SIDEBAR_TABS } from "../../../../../utils/constants";
+import useToggle from "../../../../hooks/useToggle";
+import Icon from "../../../Icons";
+import { Container, Donation, SectionHeader, StyledModal } from "./styles";
+import Tab from "./Tab";
 
 const Sidebar: FC = () => {
-  const [showDonation, toggleDonation] = useToggle()
+  const [showDonation, toggleDonation] = useToggle();
 
   return (
     <>
@@ -20,7 +20,7 @@ const Sidebar: FC = () => {
         ))}
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

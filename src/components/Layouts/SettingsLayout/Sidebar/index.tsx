@@ -1,35 +1,35 @@
-import { useRouter } from 'next/router'
-import { memo, useMemo } from 'react'
+import { useRouter } from "next/router";
+import { memo, useMemo } from "react";
 
-import { Container, Tab } from './styles'
+import { Container, Tab } from "./styles";
 
 const TABS = {
-  overview: 'Overview',
-  privacy: 'Privacy',
-  'viewing-key': 'Viewing Key',
-}
+  overview: "Overview",
+  privacy: "Privacy",
+  "viewing-key": "Viewing Key",
+};
 
 const Sidebar = () => {
-  const router = useRouter()
-  const { contractAddress } = router.query
+  const router = useRouter();
+  const { contractAddress } = router.query;
 
   // component state
   const activeTab = useMemo(
-    () => router.asPath.split('/')[5] || 'overview',
-    [router.asPath]
-  )
+    () => router.asPath.split("/")[5] || "overview",
+    [router.asPath],
+  );
 
   const onClickTab = (value: string) => {
     router.push(
       `/nft/collections/[contractAddress]/settings${
-        value === 'overview' ? '' : `/${value}`
+        value === "overview" ? "" : `/${value}`
       }`,
       `/nft/collections/${contractAddress}/settings${
-        value === 'overview' ? '' : `/${value}`
+        value === "overview" ? "" : `/${value}`
       }`,
-      { shallow: true }
-    )
-  }
+      { shallow: true },
+    );
+  };
 
   return (
     <Container>
@@ -43,7 +43,7 @@ const Sidebar = () => {
         </Tab>
       ))}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Sidebar)
+export default memo(Sidebar);

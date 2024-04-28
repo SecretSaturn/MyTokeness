@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface TagProps {
-  readonly color?: string
+  readonly color?: string;
 }
 
 const Tag = styled.div<TagProps>`
@@ -16,10 +16,10 @@ const Tag = styled.div<TagProps>`
   padding: 0 ${(props) => props.theme.space.xs};
 
   ${(props) =>
-    props.color === 'blue' &&
+    props.color === "blue" &&
     `
     background: ${props.theme.palette.blue[400]};
   `}
-`
+`;
 
-export { Tag }
+export { Tag };

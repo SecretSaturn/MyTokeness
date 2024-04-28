@@ -1,20 +1,20 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
 export const useUpdateEffect = (
   effect: () => void,
-  dependencies: unknown[] = []
+  dependencies: unknown[] = [],
 ): void => {
-  const isInitialMount = useRef(true)
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
     if (isInitialMount.current) {
-      isInitialMount.current = false
+      isInitialMount.current = false;
     } else {
-      effect()
+      effect();
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, dependencies)
-}
+  }, dependencies);
+};
 
-export default useUpdateEffect
+export default useUpdateEffect;

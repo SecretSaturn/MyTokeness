@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -11,7 +11,7 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
     >
       <path d="M376 232H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h368c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z" />
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

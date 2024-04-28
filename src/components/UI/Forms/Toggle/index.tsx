@@ -1,13 +1,13 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import { CheckBox, CheckBoxLabel, CheckBoxWrapper } from './styles'
+import { CheckBox, CheckBoxLabel, CheckBoxWrapper } from "./styles";
 
 type Props = {
-  checked?: boolean
-  onChange?: () => void
-  id?: string
-  disabled?: boolean
-}
+  checked?: boolean;
+  onChange?: () => void;
+  id?: string;
+  disabled?: boolean;
+};
 
 const Toggle: FC<Props> = ({
   checked,
@@ -25,6 +25,6 @@ const Toggle: FC<Props> = ({
     />
     <CheckBoxLabel htmlFor={id} disabled={disabled} />
   </CheckBoxWrapper>
-)
+);
 
-export default memo(Toggle)
+export default memo(Toggle);

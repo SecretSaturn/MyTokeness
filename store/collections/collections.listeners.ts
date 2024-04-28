@@ -1,5 +1,5 @@
-import { actionOn, thunkOn } from 'easy-peasy'
+import { actionOn, thunkOn } from "easy-peasy";
 
-const listeners = {}
+const listeners = {};
 
-export default listeners
+export default listeners;

@@ -1,101 +1,101 @@
-import { FC, FormEvent, memo, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { FC, FormEvent, memo, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-import { MAX_GAS } from '../../../../utils/constants'
-import parseErrorMsg from '../../../../utils/parseErrorMsg'
-import { amountPattern } from '../../../../utils/regexPatterns'
-import { useStoreState } from '../../../hooks/storeHooks'
-import useMutationConnectWallet from '../../../hooks/useMutationConnectWallet'
-import useMutationExeContract from '../../../hooks/useMutationExeContract'
-import useMutationGetAccounts from '../../../hooks/useMutationGetAccounts'
-import useQuerySnip20Info from '../../../hooks/useQuerySnip20Info'
-import ButtonWithLoading from '../../Common/ButtonWithLoading'
-import MessageWithIcon from '../../Common/MessageWithIcon'
-import { Card, Header, Wrapper } from '../../UI/Card'
-import { Field, Input, InputGroup, Label, Symbol } from '../../UI/Forms'
-import { StyledDots } from '../../UI/Loaders'
-import { format, validate } from './lib'
+import { MAX_GAS } from "../../../../utils/constants";
+import parseErrorMsg from "../../../../utils/parseErrorMsg";
+import { amountPattern } from "../../../../utils/regexPatterns";
+import { useStoreState } from "../../../hooks/storeHooks";
+import useMutationConnectWallet from "../../../hooks/useMutationConnectWallet";
+import useMutationExeContract from "../../../hooks/useMutationExeContract";
+import useMutationGetAccounts from "../../../hooks/useMutationGetAccounts";
+import useQuerySnip20Info from "../../../hooks/useQuerySnip20Info";
+import ButtonWithLoading from "../../Common/ButtonWithLoading";
+import MessageWithIcon from "../../Common/MessageWithIcon";
+import { Card, Header, Wrapper } from "../../UI/Card";
+import { Field, Input, InputGroup, Label, Symbol } from "../../UI/Forms";
+import { StyledDots } from "../../UI/Loaders";
+import { format, validate } from "./lib";
 
 type Props = {
-  contractAddress: string
-  enableButton?: boolean
-  success?: boolean
-}
+  contractAddress: string;
+  enableButton?: boolean;
+  success?: boolean;
+};
 
 const BurnCard: FC<Props> = ({ contractAddress, enableButton, success }) => {
   // store state
-  const isConnected = useStoreState((state) => state.auth.isWalletConnected)
+  const isConnected = useStoreState((state) => state.auth.isWalletConnected);
 
   // component state
-  const [amount, setAmount] = useState('')
-  const [memo, setMemo] = useState('')
-  const [error, setError] = useState('')
+  const [amount, setAmount] = useState("");
+  const [memo, setMemo] = useState("");
+  const [error, setError] = useState("");
 
   // custom hooks
   const { mutateAsync: connect, isLoading: connecting } =
-    useMutationConnectWallet()
+    useMutationConnectWallet();
   const { mutateAsync: getAccounts, isLoading: gettingAccounts } =
-    useMutationGetAccounts()
-  const { mutate, isLoading: burning } = useMutationExeContract()
+    useMutationGetAccounts();
+  const { mutate, isLoading: burning } = useMutationExeContract();
 
   const { data, isLoading: fetchingInfo } = useQuerySnip20Info(
     contractAddress,
-    { enabled: success && !!contractAddress }
-  )
+    { enabled: success && !!contractAddress },
+  );
 
   // lifecycles
   useEffect(() => {
-    setAmount('')
-  }, [data])
+    setAmount("");
+  }, [data]);
 
   useEffect(() => {
-    setError('')
-  }, [amount])
+    setError("");
+  }, [amount]);
 
   const onChangeAmount = (e: FormEvent<HTMLInputElement>) => {
-    const amount = e.currentTarget.value
+    const amount = e.currentTarget.value;
     if (
       !amount ||
       amount.match(amountPattern(data?.token_info.decimals as number))
     ) {
-      setAmount(amount)
+      setAmount(amount);
     }
-  }
+  };
 
   const onBurn = async () => {
-    const { hasErrors, amount: amountError } = validate(amount)
+    const { hasErrors, amount: amountError } = validate(amount);
 
-    setError(amountError)
+    setError(amountError);
 
     if (hasErrors) {
-      return
+      return;
     }
 
     if (!isConnected) {
       try {
-        await connect()
-        await getAccounts()
+        await connect();
+        await getAccounts();
       } catch (error) {
-        throw error
+        throw error;
       }
     }
 
-    const handleMsg = format(memo, amount, data?.token_info.decimals)
+    const handleMsg = format(memo, amount, data?.token_info.decimals);
 
     mutate(
       { contractAddress, maxGas: MAX_GAS.SNIP20.BURN, handleMsg },
       {
         onSuccess: () => {
-          toast.success(`Burnt ${amount} ${data?.token_info.symbol}`)
-          setAmount('')
-          setMemo('')
+          toast.success(`Burnt ${amount} ${data?.token_info.symbol}`);
+          setAmount("");
+          setMemo("");
         },
         onError: (error) => {
-          toast.error(parseErrorMsg(error))
+          toast.error(parseErrorMsg(error));
         },
-      }
-    )
-  }
+      },
+    );
+  };
 
   return (
     <Card>
@@ -107,7 +107,7 @@ const BurnCard: FC<Props> = ({ contractAddress, enableButton, success }) => {
             <Input placeholder="0.0" value={amount} onChange={onChangeAmount} />
             <Symbol>
               {fetchingInfo && <StyledDots />}
-              {!fetchingInfo && !data && '--'}
+              {!fetchingInfo && !data && "--"}
               {!fetchingInfo && data?.token_info.symbol}
             </Symbol>
           </InputGroup>
@@ -130,7 +130,7 @@ const BurnCard: FC<Props> = ({ contractAddress, enableButton, success }) => {
         />
       </Wrapper>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(BurnCard)
+export default memo(BurnCard);

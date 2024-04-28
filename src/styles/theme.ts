@@ -1,34 +1,34 @@
-export type Theme = typeof theme.dark
+export type Theme = typeof theme.dark;
 
 const theme = {
   dark: {
-    bg: '#0e1115',
-    fg: '#181e24',
+    bg: "#0e1115",
+    fg: "#181e24",
     border: {
-      color: '#212a31',
+      color: "#212a31",
       radii: {
-        sm: '10px',
-        md: '20px',
+        sm: "10px",
+        md: "20px",
       },
     },
     font: {
       sizes: {
-        xs: '1rem',
-        sm: '1.2rem',
-        md: '1.4rem',
-        lg: '1.8rem',
-        xl: '2.2rem',
-        xxl: '2.6rem',
-        xxxl: '3.6rem',
+        xs: "1rem",
+        sm: "1.2rem",
+        md: "1.4rem",
+        lg: "1.8rem",
+        xl: "2.2rem",
+        xxl: "2.6rem",
+        xxxl: "3.6rem",
       },
       colors: {
-        brand: '#5eae91',
-        primary: '#fff',
-        secondary: '#a0b3c6',
-        disabled: '#404a50',
-        error: '#e35b66',
-        warn: '#e35b66',
-        inversePrimary: '#0e1115',
+        brand: "#5eae91",
+        primary: "#fff",
+        secondary: "#a0b3c6",
+        disabled: "#404a50",
+        error: "#e35b66",
+        warn: "#e35b66",
+        inversePrimary: "#0e1115",
       },
       weights: {
         thin: 100,
@@ -42,58 +42,58 @@ const theme = {
         black: 900,
       },
       lineHeights: {
-        sm: '1.6rem',
-        md: '2rem',
-        lg: '2.4rem',
-        xl: '2.8rem',
-        xxl: '3.2rem',
-        xxxl: '4.4rem',
+        sm: "1.6rem",
+        md: "2rem",
+        lg: "2.4rem",
+        xl: "2.8rem",
+        xxl: "3.2rem",
+        xxxl: "4.4rem",
       },
     },
     icon: {
       colors: {
-        brand: '#5eae91',
-        primary: '#fff',
-        secondary: '#889aa7',
-        disabled: '#404a50',
-        error: '#e35b66',
-        warn: '#e35b66',
+        brand: "#5eae91",
+        primary: "#fff",
+        secondary: "#889aa7",
+        disabled: "#404a50",
+        error: "#e35b66",
+        warn: "#e35b66",
       },
       sizes: {
-        md: '16px',
-        xxl: '50px',
+        md: "16px",
+        xxl: "50px",
       },
     },
     space: {
       base: 4,
-      xxs: '4px',
-      xs: '8px',
-      sm: '12px',
-      md: '20px',
-      lg: '32px',
-      xl: '40px',
-      xxl: '48px',
+      xxs: "4px",
+      xs: "8px",
+      sm: "12px",
+      md: "20px",
+      lg: "32px",
+      xl: "40px",
+      xxl: "48px",
     },
     palette: {
       red: {
-        400: '#e35b66',
+        400: "#e35b66",
       },
       green: {
-        300: '#aecfc2',
-        400: '#5eae91',
+        300: "#aecfc2",
+        400: "#5eae91",
       },
       blue: {
-        400: '#499bfc',
-        700: '#144a75',
+        400: "#499bfc",
+        700: "#144a75",
       },
       yellow: {
-        400: '#ffb057',
+        400: "#ffb057",
       },
       teal: {
-        400: '#02a191',
+        400: "#02a191",
       },
       grey: {
-        400: '#c2c8cc',
+        400: "#c2c8cc",
       },
     },
 
@@ -102,39 +102,39 @@ const theme = {
       button: {
         bg: {
           default: {
-            base: 'transparent',
-            hover: '#889aa730',
-            active: '#889aa778',
+            base: "transparent",
+            hover: "#889aa730",
+            active: "#889aa778",
           },
           primary: {
-            base: '#337fbd',
-            hover: '#5293c7',
-            active: '#adcce4',
+            base: "#337fbd",
+            hover: "#5293c7",
+            active: "#adcce4",
           },
           danger: {
-            base: '#d93f4c',
-            hover: '#e35b66',
-            active: '#f5b5ba',
+            base: "#d93f4c",
+            hover: "#e35b66",
+            active: "#f5b5ba",
           },
-          disabled: '#30373e',
+          disabled: "#30373e",
         },
         color: {
-          default: { base: '#fff', hover: '#fff', active: '#fff' },
-          primary: '#181e24',
-          danger: '#181e24',
-          disabled: '#181e24',
+          default: { base: "#fff", hover: "#fff", active: "#fff" },
+          primary: "#181e24",
+          danger: "#181e24",
+          disabled: "#181e24",
         },
         border: {
-          default: '1px solid #889aa7',
-          primary: 'none',
-          danger: 'none',
+          default: "1px solid #889aa7",
+          primary: "none",
+          danger: "none",
         },
       },
       anchor: {
         color: {
-          base: '#5293c7',
-          hover: '#75b4ff',
-          active: '#9cc9ff',
+          base: "#5293c7",
+          hover: "#75b4ff",
+          active: "#9cc9ff",
         },
       },
     },
@@ -144,82 +144,82 @@ const theme = {
       fileUpload: {
         border: {
           color: {
-            default: '#5e707d',
-            error: '#e35b66',
+            default: "#5e707d",
+            error: "#e35b66",
           },
         },
         bg: {
-          default: '#0e1115',
-          hover: '#0b0f13',
-          active: '#000000',
+          default: "#0e1115",
+          hover: "#0b0f13",
+          active: "#000000",
         },
       },
       input: {
         bg: {
-          default: '#0e1115',
+          default: "#0e1115",
         },
         border: {
           color: {
-            default: '#5e707d',
-            hover: '#849eb1',
-            focus: '#399ee8',
-            defaultError: '#e35b66',
-            hoverError: '#e65a6f',
-            focusError: '#ef5d73',
+            default: "#5e707d",
+            hover: "#849eb1",
+            focus: "#399ee8",
+            defaultError: "#e35b66",
+            hoverError: "#e65a6f",
+            focusError: "#ef5d73",
           },
-          radius: '4px',
+          radius: "4px",
         },
         shadow: {
           color: {
-            focus: '#0b4975',
-            focusError: '#522424',
+            focus: "#0b4975",
+            focusError: "#522424",
           },
         },
         placeholder: {
-          color: '#535f67',
+          color: "#535f67",
         },
       },
       toggle: {
         bg: {
           checked: {
-            default: '#337fbd',
-            hover: '#5293c7',
-            active: '#adcce4',
+            default: "#337fbd",
+            hover: "#5293c7",
+            active: "#adcce4",
           },
           unchecked: {
-            default: '#68737d',
-            hover: '#87929d',
-            active: '#c2c8cc',
-            disabled: '#404a50',
+            default: "#68737d",
+            hover: "#87929d",
+            active: "#c2c8cc",
+            disabled: "#404a50",
           },
         },
       },
       radio: {
         border: {
           checked: {
-            default: '#337fbd',
+            default: "#337fbd",
           },
           unchecked: {
-            default: '#889aa7',
-            hover: '#1377bd',
-            active: '#0e5b92',
+            default: "#889aa7",
+            hover: "#1377bd",
+            active: "#0e5b92",
           },
         },
         bg: {
           checked: {
-            default: '#337fbd',
-            hover: '#5293c7',
-            active: '#adcce4',
+            default: "#337fbd",
+            hover: "#5293c7",
+            active: "#adcce4",
           },
           unchecked: {
-            default: 'trasparent',
-            hover: '#1377bd',
-            active: '#0e5b92',
+            default: "trasparent",
+            hover: "#1377bd",
+            active: "#0e5b92",
           },
         },
       },
       symbol: {
-        bg: 'linear-gradient(0deg,#87929d 0, #c2c8cc 100%)',
+        bg: "linear-gradient(0deg,#87929d 0, #c2c8cc 100%)",
       },
     },
 
@@ -227,10 +227,10 @@ const theme = {
     sidebar: {
       tab: {
         bg: {
-          hover: '#232b33',
+          hover: "#232b33",
         },
-        indicator: '#ede0ce',
-        color: '#aecfc2',
+        indicator: "#ede0ce",
+        color: "#aecfc2",
       },
     },
 
@@ -239,21 +239,21 @@ const theme = {
       toast: {
         container: {},
         toast: {
-          bg: '#181e24',
-          border: '2px solid #212a31',
+          bg: "#181e24",
+          border: "2px solid #212a31",
         },
         body: {
           color: {
-            default: '#fff',
-            error: '#e35b66',
-            success: '#5eae91',
+            default: "#fff",
+            error: "#e35b66",
+            success: "#5eae91",
           },
         },
         progress: {
           bg: {
-            default: 'linear-gradient(to right, #1891e6, #bd18e6)',
-            error: 'linear-gradient(to right, #e35b66, #f5d5d8)',
-            success: 'linear-gradient(to right, #5eae91, #d1e8df)',
+            default: "linear-gradient(to right, #1891e6, #bd18e6)",
+            error: "linear-gradient(to right, #e35b66, #f5d5d8)",
+            success: "linear-gradient(to right, #5eae91, #d1e8df)",
           },
         },
       },
@@ -262,27 +262,27 @@ const theme = {
     // modal
     modal: {
       overlay: {
-        bg: '#0e1115ab',
+        bg: "#0e1115ab",
       },
       card: {
-        bg: '#181e24',
-        border: '2px solid #212a31',
+        bg: "#181e24",
+        border: "2px solid #212a31",
       },
       header: {
         border: {
-          color: '#212a31',
+          color: "#212a31",
         },
       },
       border: {
-        color: '#212a31',
+        color: "#212a31",
       },
     },
 
     // loaders
     loaders: {
       skeleton: {
-        color: '#3c454e',
-        highlightColor: 'linear-gradient(to right, #3c454e, #535e69, #3c454e)',
+        color: "#3c454e",
+        highlightColor: "linear-gradient(to right, #3c454e, #535e69, #3c454e)",
       },
     },
 
@@ -290,18 +290,18 @@ const theme = {
     pagination: {
       button: {
         bg: {
-          selected: '#5eae912b',
-          hover: '#5eae914f',
-          active: '#5eae9169',
+          selected: "#5eae912b",
+          hover: "#5eae914f",
+          active: "#5eae9169",
         },
       },
     },
 
     // tags
     tags: {
-      color: '#181e24',
+      color: "#181e24",
       bg: {
-        default: '#e9ebed',
+        default: "#e9ebed",
       },
     },
 
@@ -310,12 +310,12 @@ const theme = {
       progression: {
         number: {
           color: {
-            default: '#fff',
-            disabled: '#404a50',
+            default: "#fff",
+            disabled: "#404a50",
           },
           border: {
-            default: '2px solid #fff',
-            disabled: '2px solid #404a50',
+            default: "2px solid #fff",
+            disabled: "2px solid #404a50",
           },
         },
       },
@@ -324,15 +324,15 @@ const theme = {
     // tooltip
     tooltip: {
       content: {
-        bg: '#f5f5f5E6',
-        color: '#0e1115',
+        bg: "#f5f5f5E6",
+        color: "#0e1115",
       },
     },
 
     // avatar
     avatar: {
-      icon: '#5eae91',
-      border: '#5eae9180',
+      icon: "#5eae91",
+      border: "#5eae9180",
     },
   },
 
@@ -340,7 +340,7 @@ const theme = {
   light: {
     //
   },
-}
+};
 
 // red #d95468
 // green #60af73
@@ -348,4 +348,4 @@ const theme = {
 // blue #499bfc
 // yellow #f0be72
 
-export default theme
+export default theme;

@@ -1,7 +1,7 @@
-import { getLayout } from '../../src/components/Layouts/ManageLayout'
+import { getLayout } from "../../src/components/Layouts/ManageLayout";
 
-const Page = (): JSX.Element => <></>
+const Page = (): JSX.Element => <></>;
 
-Page.getLayout = getLayout
+Page.getLayout = getLayout;
 
-export default Page
+export default Page;

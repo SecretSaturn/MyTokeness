@@ -1,24 +1,24 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import ButtonWithLoading from '../Common/ButtonWithLoading'
-import { IconName } from '../Icons'
-import { Container, StyledIcon, StyledText } from './styles'
+import ButtonWithLoading from "../Common/ButtonWithLoading";
+import { IconName } from "../Icons";
+import { Container, StyledIcon, StyledText } from "./styles";
 
 type Props = {
-  text?: string
-  icon?: IconName
-  className?: string
-  buttonText?: string
-  buttonWidth?: number
-  loading?: boolean
-  onClick?: () => void
-}
+  text?: string;
+  icon?: IconName;
+  className?: string;
+  buttonText?: string;
+  buttonWidth?: number;
+  loading?: boolean;
+  onClick?: () => void;
+};
 
 const EmptyList: FC<Props> = ({
   text,
   icon,
   className,
-  buttonText = '',
+  buttonText = "",
   loading,
   buttonWidth,
   onClick = () => null,
@@ -36,6 +36,6 @@ const EmptyList: FC<Props> = ({
       />
     )}
   </Container>
-)
+);
 
-export default memo(EmptyList)
+export default memo(EmptyList);

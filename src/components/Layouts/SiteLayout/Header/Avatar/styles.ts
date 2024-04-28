@@ -1,17 +1,17 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import Icon from '../../../../Icons'
+import Icon from "../../../../Icons";
 
 interface InfoPillProps {
-  readonly right?: boolean
-  readonly left?: boolean
+  readonly right?: boolean;
+  readonly left?: boolean;
 }
 
 const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
-`
+`;
 
 const Circle = styled.div`
   align-items: center;
@@ -22,13 +22,13 @@ const Circle = styled.div`
   height: 3.8rem;
   justify-content: center;
   width: 3.8rem;
-`
+`;
 
 const StyledIcon = styled(Icon)`
   fill: ${(props) => props.theme.avatar.icon};
   height: 50%;
   width: 50%;
-`
+`;
 
 const InfoPill = styled.div<InfoPillProps>`
   align-items: center;
@@ -56,11 +56,11 @@ const InfoPill = styled.div<InfoPillProps>`
       border-bottom-left-radius: 0px;
       font-weight: ${props.theme.font.weights.semibold};
   `}
-`
+`;
 
 const Wrapper = styled.div`
   position: relative;
-`
+`;
 
 const Outline = styled.div`
   border-bottom: 2px solid ${(props) => props.theme.avatar.border};
@@ -72,11 +72,11 @@ const Outline = styled.div`
   top: 0;
   width: 100%;
   z-index: -1;
-`
+`;
 
 const Address = styled.div`
   color: #fff;
   cursor: pointer;
-`
+`;
 
-export { Container, Circle, StyledIcon, InfoPill, Wrapper, Outline, Address }
+export { Container, Circle, StyledIcon, InfoPill, Wrapper, Outline, Address };

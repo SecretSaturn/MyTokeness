@@ -1,46 +1,46 @@
-import { FC, MouseEvent, memo, useCallback, useMemo } from 'react'
+import { FC, MouseEvent, memo, useCallback, useMemo } from "react";
 
-import Icon from '../../Icons'
-import { Button, Container } from './styles'
+import Icon from "../../Icons";
+import { Button, Container } from "./styles";
 
 type Props = {
-  totalPages: number
-  currentPage: number
-  onChange: (page: number) => void
-}
+  totalPages: number;
+  currentPage: number;
+  onChange: (page: number) => void;
+};
 
 const Pagination: FC<Props> = ({ totalPages, currentPage, onChange }) => {
   const PAGES = useMemo(
     () => Array.from({ length: totalPages }, (_, i) => i + 1),
-    [totalPages]
-  )
+    [totalPages],
+  );
 
   const secondFromLeftButtonValue = useMemo(
-    () => (currentPage > 3 ? '...' : '2'),
-    [currentPage]
-  )
+    () => (currentPage > 3 ? "..." : "2"),
+    [currentPage],
+  );
 
   const middleButtonValue = useMemo(() => {
     if (currentPage < 3) {
-      return 3
+      return 3;
     } else if (currentPage > totalPages - 2) {
-      return totalPages - 2
+      return totalPages - 2;
     } else {
-      return currentPage
+      return currentPage;
     }
-  }, [currentPage, totalPages])
+  }, [currentPage, totalPages]);
 
   const secondFromRightButtonValue = useMemo(
-    () => (currentPage < totalPages - 2 ? '...' : totalPages - 1),
-    [currentPage, totalPages]
-  )
+    () => (currentPage < totalPages - 2 ? "..." : totalPages - 1),
+    [currentPage, totalPages],
+  );
 
   const onClickPage = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
-      onChange(parseInt(e.currentTarget.value, 10))
+      onChange(parseInt(e.currentTarget.value, 10));
     },
-    [onChange]
-  )
+    [onChange],
+  );
 
   return (
     <Container>
@@ -73,7 +73,7 @@ const Pagination: FC<Props> = ({ totalPages, currentPage, onChange }) => {
             selected={currentPage === 2}
             value={secondFromLeftButtonValue}
             onClick={onClickPage}
-            disabled={secondFromLeftButtonValue === '...'}
+            disabled={secondFromLeftButtonValue === "..."}
           >
             {secondFromLeftButtonValue}
           </Button>
@@ -88,7 +88,7 @@ const Pagination: FC<Props> = ({ totalPages, currentPage, onChange }) => {
             selected={currentPage === totalPages - 1}
             value={secondFromRightButtonValue}
             onClick={onClickPage}
-            disabled={secondFromRightButtonValue === '...'}
+            disabled={secondFromRightButtonValue === "..."}
           >
             {secondFromRightButtonValue}
           </Button>
@@ -109,14 +109,14 @@ const Pagination: FC<Props> = ({ totalPages, currentPage, onChange }) => {
           onChange(
             totalPages === -1
               ? currentPage + 1
-              : Math.min(totalPages, currentPage + 1)
+              : Math.min(totalPages, currentPage + 1),
           )
         }
       >
         <Icon name="chevron-right" />
       </Button>
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Pagination)
+export default memo(Pagination);

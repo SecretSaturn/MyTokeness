@@ -1,5 +1,5 @@
 const customMediaQuery = (minWidth: number) =>
-  `@media (min-width: ${minWidth}px)`
+  `@media (min-width: ${minWidth}px)`;
 
 const media = {
   custom: customMediaQuery,
@@ -10,6 +10,6 @@ const media = {
   laptop: customMediaQuery(1024),
   laptopL: customMediaQuery(1440),
   desktop: customMediaQuery(2560),
-}
+};
 
-export { media }
+export { media };

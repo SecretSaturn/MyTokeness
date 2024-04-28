@@ -1,18 +1,15 @@
-import { FC, memo } from 'react'
+import { FC, memo } from "react";
 
-import lottieJson from '../../../../../public/lotties/fingerprint.json'
+import lottieJson from "../../../../../public/lotties/fingerprint.json";
 
 type Props = {
-  size?: number
-}
+  size?: number;
+};
 
 const Fingerprint: FC<Props> = (props) => {
-  const { size = 50 } = props
+  const { size = 50 } = props;
 
-  return (
-    <>
-    </>
-  )
-}
+  return <></>;
+};
 
-export default memo(Fingerprint)
+export default memo(Fingerprint);
