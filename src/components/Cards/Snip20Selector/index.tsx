@@ -73,6 +73,7 @@ const Snip20Selector: FC<Props> = ({
               classNamePrefix="select"
               options={options}
               value={options.filter((item) => item.value === value)}
+              //@ts-ignore
               onChange={(option: { value: string; label: string }) =>
                 onChange(option.value)
               }

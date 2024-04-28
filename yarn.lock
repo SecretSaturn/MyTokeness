@@ -1006,6 +1006,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:18.2.0":
+  version: 18.2.0
+  resolution: "@types/react-dom@npm:18.2.0"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10c0/f9f7a396c5499a6fb97e31ef9b050cf9ec5f61e6ec4040badb53428f9e73258c95e5b3dd8233541631b0461d623739b3f6348a4130359c92ce0a69d74a5e9176
+  languageName: node
+  linkType: hard
+
 "@types/react-select@npm:^4.0.15":
   version: 4.0.18
   resolution: "@types/react-select@npm:4.0.18"
@@ -5530,12 +5539,12 @@ __metadata:
 
 "react-use-dimensions@https://github.com/SecretSaturn/useDimensions#master":
   version: 1.2.1
-  resolution: "react-use-dimensions@https://github.com/SecretSaturn/useDimensions.git#commit=e73d4673208ee4b6f62737a47228b6113c2343ad"
+  resolution: "react-use-dimensions@https://github.com/SecretSaturn/useDimensions.git#commit=84c83940e3420662da3b7e30f60768d13cb2fc96"
   peerDependencies:
     "@types/react": ^18.3.1
     react: ^18.3.1
-    typescript: ^3.5.2
-  checksum: 10c0/4020856b1a3e6b25a50c030084d683f7eb5ddfd9242fe4ed8f6171b8afc28902a10b8538d85e6d8b424a0eb9ed8c7c584f1e0bc8fcf9d502dfa019aff196a26a
+    typescript: ^4.9.5
+  checksum: 10c0/8545eea92a90555e5fd480c0b8f140cb7f20257bc100fee6dcf1e596d538c4d53e6687b752ab533e13b3c7ab8c4dc1e55db3f28f005e5e26caf617bf653f94a1
   languageName: node
   linkType: hard
 
@@ -6630,23 +6639,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^3.5.2":
-  version: 3.9.10
-  resolution: "typescript@npm:3.9.10"
+"typescript@npm:^4.9.5":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/863cc06070fa18a0f9c6a83265fb4922a8b51bf6f2c6760fb0b73865305ce617ea4bc6477381f9f4b7c3a8cb4a455b054f5469e6e41307733fe6a2bd9aae82f8
+  checksum: 10c0/5f6cad2e728a8a063521328e612d7876e12f0d8a8390d3b3aaa452a6a65e24e9ac8ea22beb72a924fd96ea0a49ea63bb4e251fb922b12eedfb7f7a26475e5c56
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^3.5.2#optional!builtin<compat/typescript>":
-  version: 3.9.10
-  resolution: "typescript@patch:typescript@npm%3A3.9.10#optional!builtin<compat/typescript>::version=3.9.10&hash=3bd3d3"
+"typescript@patch:typescript@npm%3A^4.9.5#optional!builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/9041fb3886e7d6a560f985227b8c941d17a750f2edccb5f9b3a15a2480574654d9be803ad4a14aabcc2f2553c4d272a25fd698a7c42692f03f66b009fb46883c
+  checksum: 10c0/e3333f887c6829dfe0ab6c1dbe0dd1e3e2aeb56c66460cb85c5440c566f900c833d370ca34eb47558c0c69e78ced4bfe09b8f4f98b6de7afed9b84b8d1dd06a1
   languageName: node
   linkType: hard
 
@@ -6869,6 +6878,7 @@ __metadata:
     "@types/node": "npm:^14.14.12"
     "@types/react": "npm:^18.3.1"
     "@types/react-datepicker": "npm:^3.1.8"
+    "@types/react-dom": "npm:18.2.0"
     "@types/react-select": "npm:^4.0.15"
     "@types/react-table": "npm:^7.7.0"
     "@types/styled-components": "npm:^5.1.7"
@@ -6912,7 +6922,7 @@ __metadata:
     styled-components: "npm:^6.1.8"
     styled-normalize: "npm:^8.0.7"
     styled-react-modal: "npm:^3.1.1"
-    typescript: "npm:^4.3.3"
+    typescript: "npm:^4.9.5"
     zdog: "npm:^1.1.3"
   languageName: unknown
   linkType: soft
