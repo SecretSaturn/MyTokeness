@@ -1,4 +1,3 @@
-import { getLayout as getCollectionLayout } from '../CollectionLayout'
 import Sidebar from './Sidebar'
 import { Container } from './styles'
 
@@ -13,7 +12,4 @@ const SettingsLayout = ({ children }: Props) => (
   </Container>
 )
 
-const getLayout = (page: JSX.Element) =>
-  getCollectionLayout(<SettingsLayout>{page}</SettingsLayout>)
-
-export { SettingsLayout as default, getLayout }
+export { SettingsLayout as default }

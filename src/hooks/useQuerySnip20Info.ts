@@ -9,12 +9,17 @@ const useQuerySnip20Info = (
 ): UseQueryResult<ResultTokenInfo, Error> =>
   useQuery(
     ['tokenInfo', contractAddress],
-    () => queryChain.queryContractSmart(contractAddress, { token_info: {} }),
+    () =>  queryChain.query.compute.queryContract({
+      contract_address: contractAddress,
+      query: {
+        token_info: {},
+      },
+    }) as Promise <ResultTokenInfo>,
     {
       refetchOnWindowFocus: false,
       retry: 1,
       ...options,
-    }
+    } as any
   )
 
 export default useQuerySnip20Info

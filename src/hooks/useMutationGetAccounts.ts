@@ -11,7 +11,7 @@ const useMutationGetAccounts = () => {
 
   return useMutation(keplr.getAccounts, {
     onSuccess: ({ accounts }) => {
-      setStoreAccounts(accounts)
+      setStoreAccounts(accounts as any)
     },
     onError: () => {
       setStoreAccounts([])

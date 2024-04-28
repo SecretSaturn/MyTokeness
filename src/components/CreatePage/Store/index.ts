@@ -69,7 +69,7 @@ const actions: Actions = {
 const computators: Computators = {
   totalBalanceAmount: computed(
     [(state) => state.initialBalances],
-    totalBalanceAmount
+    totalBalanceAmount as any
   ),
   validation: computed(
     [
@@ -80,7 +80,7 @@ const computators: Computators = {
       (state) => state.initialBalances,
       (state) => state.hasTriedSubmitting,
     ],
-    validation
+    validation as any
   ),
 }
 

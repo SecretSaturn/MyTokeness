@@ -20,7 +20,7 @@ const useQuerySnip20Config = (
       refetchOnWindowFocus: false,
       retry: 1,
       ...options,
-    }
+    } as any
   )
 
 export default useQuerySnip20Config
