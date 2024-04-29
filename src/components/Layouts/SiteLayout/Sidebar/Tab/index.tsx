@@ -17,8 +17,6 @@ type Props = {
 const matchRoute = (path: string, section?: string, id?: string) => {
   if (section === "token") {
     return path.split("/")[1] === id;
-  } else if (section === "nft") {
-    return path.split("/")[2] === id;
   } else {
     return path === "/";
   }

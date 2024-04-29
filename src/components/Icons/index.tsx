@@ -1,6 +1,5 @@
 import { FC, forwardRef } from "react";
 
-import AlbumCollectionDuo from "./AlbumCollectionDuo";
 import AnalyticsDuo from "./AnalyticsDuo";
 import ArrowLeft from "./ArrowLeft";
 import BoxDuo from "./BoxDuo";
@@ -31,10 +30,6 @@ import GavelDuo from "./GavelDuo";
 import GiftCardDuo from "./GiftCardDuo";
 import GitHub from "./GitHub";
 import HandHoldingUSD from "./HandHoldingUSD";
-import HandsHeartDuo from "./HandsHeartDuo";
-import HatWizardDuo from "./HatWizardDuo";
-import HeadphonesDuo from "./HeadphonesDuo";
-import HeadSideGogglesDuo from "./HeadSideGogglesDuo";
 import HomeDuo from "./HomeDuo";
 import HorizontalRule from "./HorizontalRule";
 import IndustryDuo from "./IndustryDuo";
@@ -47,14 +42,12 @@ import Minus from "./Minus";
 import NarwhalDuo from "./NarwhalDuo";
 import Palette from "./Palette";
 import PencilPaintbrushDuo from "./PencilPaintbrushDuo";
-import PhotoVideoDuo from "./PhotoVideoDuo";
 import PiggyBankDuo from "./PiggyBankDuo";
 import Plus from "./Plus";
 import PuzzlePiece from "./PuzzlePiece";
 import ReceiptDuo from "./ReceiptDuo";
 import SadTearDuo from "./SadTearDuo";
 import SecretNetworkLogo from "./SecretNetworkLogo";
-import SecretSwapLogo from "./SecretSwapLogo";
 import ShieldDuo from "./ShieldDuo";
 import SignInDuo from "./SignInDuo";
 import SignOutDuo from "./SignOutDuo";
@@ -86,7 +79,6 @@ type Props = {
 const ICON_MAP = {
   "piggy-bank-duo": PiggyBankDuo,
   "ticket-duo": TicketDuo,
-  "secret-swap-logo": SecretSwapLogo,
   "coin-duo": CoinDuo,
   "wallet-duo": WalletDuo,
   "sign-in-duo": SignInDuo,
@@ -94,18 +86,14 @@ const ICON_MAP = {
   "gavel-duo": GavelDuo,
   "treasure-hunt": TreasureHunt,
   "user-duo": UserDuo,
-  "hands-heart-duo": HandsHeartDuo,
   "futbol-ball-duo": FutbolBallDuo,
   "browser-duo": BrowserDuo,
-  "hat-wizard-duo": HatWizardDuo,
-  "head-side-goggles-duo": HeadSideGogglesDuo,
   "narwhal-duo": NarwhalDuo,
   "toolbox-duo": ToolboxDuo,
   "crown-logo": CrownLogo,
   "secret-network-logo": SecretNetworkLogo,
   "sad-tear-duo": SadTearDuo,
   "circle-play-duo": CirclePlayDuo,
-  "headphones-duo": HeadphonesDuo,
   "lock-keyhole-open-duo": LockKeyholeOpenDuo,
   "lock-keyhole-duo": LockKeyholeDuo,
   "shield-duo": ShieldDuo,
@@ -140,7 +128,6 @@ const ICON_MAP = {
   "box-duo": BoxDuo,
   "box-open-duo": BoxOpenDuo,
   "key-skeleton": KeySkeleton,
-  "album-collection-duo": AlbumCollectionDuo,
   "user-circle-duo": UserCircleDuo,
   "chevron-up": ChevronUp,
   "chevron-down": ChevronDown,
@@ -151,7 +138,6 @@ const ICON_MAP = {
   times: Times,
   "fire-duo": FireDuo,
   flower: Flower,
-  "photo-video-duo": PhotoVideoDuo,
   github: GitHub,
   "puzzle-piece": PuzzlePiece,
   keplr: Keplr,
