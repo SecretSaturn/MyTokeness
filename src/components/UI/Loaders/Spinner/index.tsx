@@ -1,7 +1,5 @@
 import { FC, memo } from "react";
 
-import lottieJson from "../../../../../public/lotties/spinner-gradient.json";
-
 type Props = {
   size?: number;
 };

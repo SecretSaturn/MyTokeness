@@ -1,7 +1,5 @@
 import { FC, memo } from "react";
 
-import lottieJson from "../../../../../public/lotties/fingerprint.json";
-
 type Props = {
   size?: number;
 };

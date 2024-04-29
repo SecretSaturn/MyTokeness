@@ -1,9 +1,6 @@
 import { FC, memo } from "react";
 //import Lottie from 'react-lottie-player'
 
-import DOTS_BLACK from "../../../../../public/lotties/dots-black.json";
-import DOTS_WHITE from "../../../../../public/lotties/dots-white.json";
-
 type Props = {
   className?: string;
   color?: "white" | "black";

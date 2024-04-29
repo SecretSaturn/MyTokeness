@@ -30,7 +30,7 @@ const Details = () => {
               setState({ key: "name", data: e.currentTarget.value })
             }
             maxLength={30}
-            placeholder="Secret Garden"
+            placeholder="Token Garden"
           />
           {errors.name && (
             <MessageWithIcon validation="error" message={errors.name} />

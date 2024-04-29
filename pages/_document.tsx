@@ -49,7 +49,7 @@ class MyDocument extends Document {
           />
           <meta
             name="description"
-            content="Easily create, manage and explore confidential tokens with Secret Garden."
+            content="Easily create, manage and explore confidential tokens with Token Garden."
           />
           <link
             rel="icon"
