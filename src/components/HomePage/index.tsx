@@ -14,10 +14,7 @@ const Home = (): JSX.Element => {
         </Text>
         <StyledIcon name="treasure-hunt" width={350} height={350} />
         <Wrapper>
-          <Text>
-            <span>Powered by</span>
-          </Text>
-          <Icon name="secret-network-logo" width={100} height={40} />
+          <Icon name="secret-network-logo" width={150} height={70} />
         </Wrapper>
       </InnerContainer>
     </Container>
