@@ -6,7 +6,7 @@ import { getLayout } from "../src/components/Layouts/SiteLayout";
 const Page = (): JSX.Element => (
   <>
     <Head>
-      <title>Create token | Secret Garden</title>
+      <title>Create token | Token Garden</title>
     </Head>
     <CreatePage />
   </>
