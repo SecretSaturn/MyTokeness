@@ -16,6 +16,5 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*.ts"],
-  "exclude": ["node_modules"],
-  "types": ["react-dom/experimental"]
+  "exclude": ["node_modules"]
 }

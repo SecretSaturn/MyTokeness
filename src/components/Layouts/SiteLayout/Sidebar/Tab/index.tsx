@@ -2,11 +2,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, memo, useMemo, useState } from "react";
 import { useSpring, useTransition } from "react-spring";
-import useDimensions from "react-use-dimensions";
 
 import { Item as IItem } from "../../../../../../utils/constants";
 import Item from "./Item";
 import { Container, Header, Label, Menu, StyledIcon, Wrapper } from "./styles";
+import useDimensions from "../../../../../../utils/useDimensions";
 
 type Props = {
   item: IItem;
@@ -41,7 +41,7 @@ const Tab: FC<Props> = (props) => {
 
   // react spring
   const { height } = useSpring({
-    height: open ? (dimensions.height || 0) + 60 : 60,
+    height: open ? ((dimensions as any).height || 0) + 60 : 60,
   });
   const transitions = useTransition(open, {
     from: { opacity: 0 },
@@ -77,7 +77,7 @@ const Tab: FC<Props> = (props) => {
         transitions(
           (_, item) =>
             item && (
-              <Menu ref={ref}>
+              <Menu ref={ref as any}>
                 {menu.map((item, index) => (
                   <Link
                     key={index}

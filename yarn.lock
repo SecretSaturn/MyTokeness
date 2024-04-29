@@ -4307,9 +4307,9 @@ __metadata:
   linkType: hard
 
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
-  version: 10.2.1
-  resolution: "lru-cache@npm:10.2.1"
-  checksum: 10c0/e5b4aa7c60e154d27b8ff3e375f8c8cba6be5e94d4048d757588dc371941c15c11ab859d3a402dab33d338d082be9af569761af27a6bc0a9d91376900abb690e
+  version: 10.2.2
+  resolution: "lru-cache@npm:10.2.2"
+  checksum: 10c0/402d31094335851220d0b00985084288136136992979d0e015f0f1697e15d1c86052d7d53ae86b614e5b058425606efffc6969a31a091085d7a2b80a8a1e26d6
   languageName: node
   linkType: hard
 
@@ -5537,14 +5537,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-use-dimensions@https://github.com/SecretSaturn/useDimensions#master":
+"react-use-dimensions@github:SecretSaturn/useDimensions#master":
   version: 1.2.1
-  resolution: "react-use-dimensions@https://github.com/SecretSaturn/useDimensions.git#commit=84c83940e3420662da3b7e30f60768d13cb2fc96"
+  resolution: "react-use-dimensions@https://github.com/SecretSaturn/useDimensions.git#commit=1f89aaf5c09900e2b1e88296c2d6d6bee8a8f70d"
   peerDependencies:
     "@types/react": ^18.3.1
     react: ^18.3.1
     typescript: ^4.9.5
-  checksum: 10c0/8545eea92a90555e5fd480c0b8f140cb7f20257bc100fee6dcf1e596d538c4d53e6687b752ab533e13b3c7ab8c4dc1e55db3f28f005e5e26caf617bf653f94a1
+  checksum: 10c0/39c34255efda5f1d038e4ff981fc5026b66260114d89daf8c5fe7583bcf9ba6f0d5c0a41ef54c4ada906c708729bef99b41c52f32ff5755a0815ceaa5d707e1e
   languageName: node
   linkType: hard
 
@@ -6917,7 +6917,7 @@ __metadata:
     react-spring: "npm:^9.2.3"
     react-table: "npm:^7.7.0"
     react-toastify: "npm:^7.0.4"
-    react-use-dimensions: "https://github.com/SecretSaturn/useDimensions#master"
+    react-use-dimensions: "github:SecretSaturn/useDimensions#master"
     secretjs: "npm:^1.12.3"
     styled-components: "npm:^6.1.8"
     styled-normalize: "npm:^8.0.7"
