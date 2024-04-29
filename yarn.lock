@@ -5537,17 +5537,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-use-dimensions@github:SecretSaturn/useDimensions#master":
-  version: 1.2.1
-  resolution: "react-use-dimensions@https://github.com/SecretSaturn/useDimensions.git#commit=1f89aaf5c09900e2b1e88296c2d6d6bee8a8f70d"
-  peerDependencies:
-    "@types/react": ^18.3.1
-    react: ^18.3.1
-    typescript: ^4.9.5
-  checksum: 10c0/39c34255efda5f1d038e4ff981fc5026b66260114d89daf8c5fe7583bcf9ba6f0d5c0a41ef54c4ada906c708729bef99b41c52f32ff5755a0815ceaa5d707e1e
-  languageName: node
-  linkType: hard
-
 "react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
@@ -6917,7 +6906,6 @@ __metadata:
     react-spring: "npm:^9.2.3"
     react-table: "npm:^7.7.0"
     react-toastify: "npm:^7.0.4"
-    react-use-dimensions: "github:SecretSaturn/useDimensions#master"
     secretjs: "npm:^1.12.3"
     styled-components: "npm:^6.1.8"
     styled-normalize: "npm:^8.0.7"
