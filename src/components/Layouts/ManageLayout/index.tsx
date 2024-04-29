@@ -92,7 +92,7 @@ const ManageLayout: FC = () => {
           {tab === "mint" ? "Mint" : ""}
           {tab === "burn" ? "Burn" : ""}
           {tab === "minters" ? "Minters" : ""}
-          {tab === "admin" ? "Admin" : ""}&nbsp;| Secret Garden
+          {tab === "admin" ? "Admin" : ""}&nbsp;| Token Garden
         </title>
       </Head>
       <Container>

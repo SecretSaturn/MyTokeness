@@ -32,7 +32,7 @@ const Header = (): JSX.Element => {
       <Link href="/" passHref>
         <Brand>
           <Icon name="flower" height={25} width={25} fill="#5eae91" />
-          <Name>{`Secret Garden`}</Name>
+          <Name>{`Token Garden`}</Name>
         </Brand>
       </Link>
       <Wrapper>

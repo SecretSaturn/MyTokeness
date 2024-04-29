@@ -103,7 +103,7 @@ const DATE_FORMAT = "yyyy MMMM d, h:mm aa";
 const DETAILED_DATE_FORMAT = "yyyy MMMM d, iiii, h:mm aa";
 
 const HEAD_TITLE_TEXT =
-  "Secret Garden | Create, manage and explore tokens on the Secret Network.";
+  "Token Garden | Create, manage and explore tokens on the Secret Network.";
 
 export {
   MAX_GAS,
