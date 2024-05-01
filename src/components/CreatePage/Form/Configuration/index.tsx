@@ -50,7 +50,7 @@ const Configuration = () => {
             }
           />
         </ToggleField>
-        <Field>
+        {/* <Field>
           <ToggleField>
             <Label>Enable deposit</Label>
             <Toggle
@@ -68,8 +68,8 @@ const Configuration = () => {
             If you enable this, you will be able to convert from SCRT to the
             token.
           </Hint>
-        </Field>
-        <Field>
+        </Field> */}
+        {/* <Field>
           <ToggleField>
             <Label>Enable redeem</Label>
             <Toggle
@@ -86,7 +86,7 @@ const Configuration = () => {
           <Hint>
             If you enable this, you will be able to redeem your token for SCRT.
           </Hint>
-        </Field>
+        </Field> */}
         <ToggleField>
           <Label>Enable mint</Label>
           <Toggle
