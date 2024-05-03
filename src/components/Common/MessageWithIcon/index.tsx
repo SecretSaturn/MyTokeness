@@ -10,10 +10,12 @@ type Props = {
 const MessageWithIcon: FC<Props> = ({ validation, message }) => (
   <MessageWrapper>
     <MessageIcon
-      name={validation === "error" ? "exclamation-circle" : undefined}
+      name={
+        validation === "error" ? "exclamation-circle" : "exclamation-circle"
+      }
       validation={validation}
     />
-    <Message validation="error">{message}</Message>
+    <Message validation={validation}>{message}</Message>
   </MessageWrapper>
 );
 

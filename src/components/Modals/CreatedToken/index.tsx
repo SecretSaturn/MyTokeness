@@ -47,9 +47,9 @@ const CreatedToken: FC<Props> = (props) => {
       </Header>
       <Content>
         <Text>
-          You have successfully created a confidential token. To view it in your
-          Keplr Wallet, a viewing key is required. Would you like to create one
-          now?
+          You have successfully created a confidential token with the contract
+          address {contractAddress} . To view it in your Keplr Wallet, a viewing
+          key is required. Would you like to create one now?
         </Text>
       </Content>
       <Buttons>

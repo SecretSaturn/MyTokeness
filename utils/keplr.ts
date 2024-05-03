@@ -38,54 +38,8 @@ const connect = async (): Promise<Response> => {
     throw new Error("Kelpr not installed.");
   }
 
-  if (process.env.NEXT_PUBLIC_IS_MAINNET === "false") {
-    await keplr.experimentalSuggestChain({
-      chainId: process.env.NEXT_PUBLIC_CHAIN_ID as string,
-      chainName: process.env.NEXT_PUBLIC_CHAIN_ID as string,
-      rpc: process.env.NEXT_PUBLIC_RPC_URL as string,
-      rest: process.env.NEXT_PUBLIC_LCD_URL as string,
-      bip44: {
-        coinType: 529,
-      },
-      coinType: 529,
-      stakeCurrency: {
-        coinDenom: "SCRT",
-        coinMinimalDenom: "uscrt",
-        coinDecimals: 6,
-      },
-      bech32Config: {
-        bech32PrefixAccAddr: "secret",
-        bech32PrefixAccPub: "secretpub",
-        bech32PrefixValAddr: "secretvaloper",
-        bech32PrefixValPub: "secretvaloperpub",
-        bech32PrefixConsAddr: "secretvalcons",
-        bech32PrefixConsPub: "secretvalconspub",
-      },
-      currencies: [
-        {
-          coinDenom: "SCRT",
-          coinMinimalDenom: "uscrt",
-          coinDecimals: 6,
-        },
-      ],
-      feeCurrencies: [
-        {
-          coinDenom: "SCRT",
-          coinMinimalDenom: "uscrt",
-          coinDecimals: 6,
-        },
-      ],
-      gasPriceStep: {
-        low: 0.1,
-        average: 0.25,
-        high: 0.4,
-      },
-      features: ["secretwasm"],
-    });
-  }
-
   try {
-    await keplr.enable(process.env.NEXT_PUBLIC_CHAIN_ID as string);
+    await keplr.enable(SECRET_CHAIN_ID as string);
     return { success: true };
   } catch (error) {
     throw error;

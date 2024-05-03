@@ -43,7 +43,7 @@ const Snip20Selector: FC<Props> = ({
         ? data
             .map((item) => ({
               value: item.address,
-              label: `${item.symbol} - ${item.name}`,
+              label: `${item.symbol} - ${item.name} - ${item.address}`,
             }))
             .concat(extraOptions)
         : [],
@@ -84,6 +84,12 @@ const Snip20Selector: FC<Props> = ({
             {showCustom ? switchText : "or add custom contract address"}
           </StyledHint>
           {error && <MessageWithIcon validation="error" message={error} />}
+          {value && !showCustom && (
+            <MessageWithIcon
+              validation="success"
+              message={`Contract Address: ${value}`}
+            />
+          )}
         </Field>
       </Wrapper>
     </Card>

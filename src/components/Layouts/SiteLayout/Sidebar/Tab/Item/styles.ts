@@ -24,7 +24,8 @@ const Container = styled.div<ContainerProps>`
     content: "";
     ${(props) => !props.selected && `display: none`};
     position: absolute;
-    height: 90%;
+    height: 40%;
+    top: 17px;
     left: 0;
     width: 4px;
   }

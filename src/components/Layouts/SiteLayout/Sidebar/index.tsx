@@ -2,14 +2,10 @@
 import { FC } from "react";
 
 import { SIDEBAR_TABS } from "../../../../../utils/constants";
-import useToggle from "../../../../hooks/useToggle";
-import Icon from "../../../Icons";
-import { Container, Donation, SectionHeader, StyledModal } from "./styles";
+import { Container, SectionHeader } from "./styles";
 import Tab from "./Tab";
 
 const Sidebar: FC = () => {
-  const [showDonation, toggleDonation] = useToggle();
-
   return (
     <>
       <Container>

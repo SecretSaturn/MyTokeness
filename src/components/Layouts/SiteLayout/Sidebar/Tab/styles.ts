@@ -34,7 +34,7 @@ const Header = styled.div<HeaderProps>`
     content: "";
     ${(props) => !props.selected && `display: none`};
     position: absolute;
-    height: 90%;
+    height: 40%;
     left: 0;
     width: 4px;
   }
