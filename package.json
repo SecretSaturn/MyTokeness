@@ -32,7 +32,7 @@
     "react-select": "^5.8.0",
     "react-spring": "^9.2.3",
     "react-toastify": "^7.0.4",
-    "secretjs": "^1.12.3",
+    "secretjs": "^1.15.1",
     "styled-components": "^6.1.8",
     "styled-normalize": "^8.0.7",
     "styled-react-modal": "^3.1.1",

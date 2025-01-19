@@ -1,4 +1,4 @@
-import { Coin } from "secretjs/dist/tx/types";
+import { Coin } from "secretjs/src/protobuf/cosmos/base/v1beta1/coin";
 
 export interface Balance {
   address: string;
